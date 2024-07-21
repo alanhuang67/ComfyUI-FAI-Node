@@ -24,7 +24,7 @@ I added 17 formulas for different transitions and turned them into a drop-down m
 
 我添加了17个用于不同过渡效果的公式，并将它们做成了一个下拉菜单。这是因为我不理解原来的公式 "0:((15 * cos((a / 60 * 3.141 * (t + 0) / b))**70 + 0.009))" 。因此，我创建了一系列公式以简化操作。
 
-Example workflow for mask generation: [****](https://github.com/alanhuang67/ComfyUI-FAI-Node/blob/main/example/Step1_Mask_Generation.json)
+[Example workflow for mask generation](https://github.com/alanhuang67/ComfyUI-FAI-Node/blob/main/example/Step1_Mask_Generation.json)
   
 Credit to https://github.com/get-salt-AI/SaltAI_AudioViz and https://discord.com/channels/1076117621407223829/1248723355914473525
 
