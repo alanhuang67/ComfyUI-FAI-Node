@@ -1,0 +1,7260 @@
+{
+  "last_node_id": 420,
+  "last_link_id": 672,
+  "nodes": [
+    {
+      "id": 12,
+      "type": "MaskToImage",
+      "pos": [
+        5320,
+        1510
+      ],
+      "size": {
+        "0": 210,
+        "1": 30
+      },
+      "flags": {},
+      "order": 114,
+      "mode": 0,
+      "inputs": [
+        {
+          "link": 12,
+          "name": "mask",
+          "type": "MASK"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            13
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "MaskToImage",
+        "ttNbgOverride": {
+          "color": "#222",
+          "bgcolor": "#000",
+          "groupcolor": "#444"
+        }
+      },
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 13,
+      "type": "Color Correct (mtb)",
+      "pos": [
+        5320,
+        1590
+      ],
+      "size": {
+        "0": 320,
+        "1": 230
+      },
+      "flags": {},
+      "order": 116,
+      "mode": 0,
+      "inputs": [
+        {
+          "link": 13,
+          "name": "image",
+          "type": "IMAGE"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            53
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Color Correct (mtb)",
+        "ttNbgOverride": {
+          "color": "#222",
+          "bgcolor": "#000",
+          "groupcolor": "#444"
+        }
+      },
+      "widgets_values": [
+        true,
+        1,
+        0.5,
+        0.5,
+        0,
+        0,
+        1,
+        1
+      ],
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 44,
+      "type": "SaltAudioFramesyncSchedule",
+      "pos": [
+        2710,
+        1460
+      ],
+      "size": {
+        "0": 320,
+        "1": 170
+      },
+      "flags": {
+        "collapsed": false
+      },
+      "order": 50,
+      "mode": 0,
+      "inputs": [
+        {
+          "link": 57,
+          "name": "audio",
+          "type": "AUDIO"
+        },
+        {
+          "link": 475,
+          "name": "frame_rate",
+          "type": "INT",
+          "widget": {
+            "name": "frame_rate"
+          }
+        },
+        {
+          "link": 488,
+          "name": "end_frame",
+          "type": "INT",
+          "widget": {
+            "name": "end_frame"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "average_sum",
+          "type": "LIST",
+          "links": [
+            37
+          ],
+          "shape": 3,
+          "slot_index": 0
+        },
+        {
+          "name": "frame_count",
+          "type": "INT",
+          "links": [],
+          "shape": 3,
+          "slot_index": 1
+        },
+        {
+          "name": "frame_rate",
+          "type": "INT",
+          "links": [],
+          "shape": 3,
+          "slot_index": 2
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "SaltAudioFramesyncSchedule"
+      },
+      "widgets_values": [
+        0.6,
+        0.2,
+        8,
+        0,
+        0,
+        "ease-in-out"
+      ],
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 61,
+      "type": "GetImageSize+",
+      "pos": [
+        3380,
+        2190
+      ],
+      "size": {
+        "0": 210,
+        "1": 70
+      },
+      "flags": {
+        "collapsed": true
+      },
+      "order": 97,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 71
+        }
+      ],
+      "outputs": [
+        {
+          "name": "width",
+          "type": "INT",
+          "links": [
+            69,
+            76
+          ],
+          "shape": 3,
+          "slot_index": 0
+        },
+        {
+          "name": "height",
+          "type": "INT",
+          "links": [
+            70,
+            77
+          ],
+          "shape": 3,
+          "slot_index": 1
+        },
+        {
+          "name": "count",
+          "type": "INT",
+          "links": null,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "GetImageSize+"
+      }
+    },
+    {
+      "id": 63,
+      "type": "EmptyImage",
+      "pos": [
+        3570,
+        2120
+      ],
+      "size": {
+        "0": 320,
+        "1": 100
+      },
+      "flags": {
+        "collapsed": false
+      },
+      "order": 102,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "batch_size",
+          "type": "INT",
+          "link": 75,
+          "widget": {
+            "name": "batch_size"
+          }
+        },
+        {
+          "name": "width",
+          "type": "INT",
+          "link": 76,
+          "widget": {
+            "name": "width"
+          }
+        },
+        {
+          "name": "height",
+          "type": "INT",
+          "link": 77,
+          "widget": {
+            "name": "height"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            67
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "EmptyImage",
+        "ttNbgOverride": {
+          "color": "#222",
+          "bgcolor": "#000",
+          "groupcolor": "#444"
+        }
+      },
+      "widgets_values": [
+        320,
+        576,
+        128,
+        0
+      ],
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 65,
+      "type": "Colored Image (mtb)",
+      "pos": [
+        3930,
+        1820
+      ],
+      "size": {
+        "0": 210,
+        "1": 140
+      },
+      "flags": {},
+      "order": 93,
+      "mode": 0,
+      "inputs": [
+        {
+          "link": 79,
+          "name": "foreground_image",
+          "type": "IMAGE"
+        },
+        {
+          "link": 80,
+          "name": "foreground_mask",
+          "type": "MASK"
+        },
+        {
+          "link": 81,
+          "name": "width",
+          "type": "INT",
+          "widget": {
+            "name": "width"
+          }
+        },
+        {
+          "link": 82,
+          "name": "height",
+          "type": "INT",
+          "widget": {
+            "name": "height"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            71,
+            78,
+            87,
+            107
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Colored Image (mtb)",
+        "ttNbgOverride": {
+          "color": "#222",
+          "bgcolor": "#000",
+          "groupcolor": "#444"
+        }
+      },
+      "widgets_values": [
+        "#ff0000",
+        432,
+        704
+      ],
+      "color": "#322",
+      "bgcolor": "#533"
+    },
+    {
+      "id": 66,
+      "type": "ImageInvert",
+      "pos": [
+        3640,
+        1740
+      ],
+      "size": {
+        "0": 210,
+        "1": 30
+      },
+      "flags": {},
+      "order": 71,
+      "mode": 0,
+      "inputs": [
+        {
+          "link": 83,
+          "name": "image",
+          "type": "IMAGE"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            79,
+            84,
+            85
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ImageInvert",
+        "ttNbgOverride": {
+          "color": "#222",
+          "bgcolor": "#000",
+          "groupcolor": "#444"
+        }
+      },
+      "color": "#322",
+      "bgcolor": "#533"
+    },
+    {
+      "id": 67,
+      "type": "ImageToMask",
+      "pos": [
+        3640,
+        1810
+      ],
+      "size": {
+        "0": 210,
+        "1": 60
+      },
+      "flags": {},
+      "order": 78,
+      "mode": 0,
+      "inputs": [
+        {
+          "link": 84,
+          "name": "image",
+          "type": "IMAGE"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": [
+            86
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ImageToMask",
+        "ttNbgOverride": {
+          "color": "#222",
+          "bgcolor": "#000",
+          "groupcolor": "#444"
+        }
+      },
+      "widgets_values": [
+        "red"
+      ],
+      "color": "#322",
+      "bgcolor": "#533"
+    },
+    {
+      "id": 68,
+      "type": "GetImageSize+",
+      "pos": [
+        3640,
+        1980
+      ],
+      "size": {
+        "0": 210,
+        "1": 70
+      },
+      "flags": {},
+      "order": 79,
+      "mode": 0,
+      "inputs": [
+        {
+          "link": 85,
+          "name": "image",
+          "type": "IMAGE"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "width",
+          "type": "INT",
+          "links": [
+            81
+          ],
+          "shape": 3,
+          "slot_index": 0
+        },
+        {
+          "name": "height",
+          "type": "INT",
+          "links": [
+            82
+          ],
+          "shape": 3,
+          "slot_index": 1
+        },
+        {
+          "name": "count",
+          "type": "INT",
+          "links": null,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "GetImageSize+",
+        "ttNbgOverride": {
+          "color": "#222",
+          "bgcolor": "#000",
+          "groupcolor": "#444"
+        }
+      },
+      "color": "#322",
+      "bgcolor": "#533"
+    },
+    {
+      "id": 69,
+      "type": "InvertMask",
+      "pos": [
+        3640,
+        1910
+      ],
+      "size": {
+        "0": 210,
+        "1": 30
+      },
+      "flags": {},
+      "order": 86,
+      "mode": 0,
+      "inputs": [
+        {
+          "link": 86,
+          "name": "mask",
+          "type": "MASK"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": [
+            80
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "InvertMask",
+        "ttNbgOverride": {
+          "color": "#222",
+          "bgcolor": "#000",
+          "groupcolor": "#444"
+        }
+      },
+      "color": "#322",
+      "bgcolor": "#533"
+    },
+    {
+      "id": 71,
+      "type": "Colored Image (mtb)",
+      "pos": [
+        3930,
+        1450
+      ],
+      "size": {
+        "0": 210,
+        "1": 140
+      },
+      "flags": {},
+      "order": 94,
+      "mode": 0,
+      "inputs": [
+        {
+          "link": 88,
+          "name": "foreground_image",
+          "type": "IMAGE"
+        },
+        {
+          "link": 89,
+          "name": "foreground_mask",
+          "type": "MASK"
+        },
+        {
+          "link": 90,
+          "name": "width",
+          "type": "INT",
+          "widget": {
+            "name": "width"
+          }
+        },
+        {
+          "link": 91,
+          "name": "height",
+          "type": "INT",
+          "widget": {
+            "name": "height"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            96,
+            108
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Colored Image (mtb)",
+        "ttNbgOverride": {
+          "color": "#222",
+          "bgcolor": "#000",
+          "groupcolor": "#444"
+        }
+      },
+      "widgets_values": [
+        "#00ff00",
+        432,
+        704
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 72,
+      "type": "ImageInvert",
+      "pos": [
+        3640,
+        1370
+      ],
+      "size": {
+        "0": 210,
+        "1": 30
+      },
+      "flags": {},
+      "order": 72,
+      "mode": 0,
+      "inputs": [
+        {
+          "link": 92,
+          "name": "image",
+          "type": "IMAGE"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            88,
+            93,
+            94
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ImageInvert",
+        "ttNbgOverride": {
+          "color": "#222",
+          "bgcolor": "#000",
+          "groupcolor": "#444"
+        }
+      },
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 73,
+      "type": "ImageToMask",
+      "pos": [
+        3640,
+        1440
+      ],
+      "size": {
+        "0": 210,
+        "1": 60
+      },
+      "flags": {},
+      "order": 80,
+      "mode": 0,
+      "inputs": [
+        {
+          "link": 93,
+          "name": "image",
+          "type": "IMAGE"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": [
+            95
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ImageToMask",
+        "ttNbgOverride": {
+          "color": "#222",
+          "bgcolor": "#000",
+          "groupcolor": "#444"
+        }
+      },
+      "widgets_values": [
+        "red"
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 74,
+      "type": "GetImageSize+",
+      "pos": [
+        3640,
+        1610
+      ],
+      "size": {
+        "0": 210,
+        "1": 70
+      },
+      "flags": {},
+      "order": 81,
+      "mode": 0,
+      "inputs": [
+        {
+          "link": 94,
+          "name": "image",
+          "type": "IMAGE"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "width",
+          "type": "INT",
+          "links": [
+            90
+          ],
+          "shape": 3,
+          "slot_index": 0
+        },
+        {
+          "name": "height",
+          "type": "INT",
+          "links": [
+            91
+          ],
+          "shape": 3,
+          "slot_index": 1
+        },
+        {
+          "name": "count",
+          "type": "INT",
+          "links": null,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "GetImageSize+",
+        "ttNbgOverride": {
+          "color": "#222",
+          "bgcolor": "#000",
+          "groupcolor": "#444"
+        }
+      },
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 75,
+      "type": "InvertMask",
+      "pos": [
+        3640,
+        1540
+      ],
+      "size": {
+        "0": 210,
+        "1": 30
+      },
+      "flags": {},
+      "order": 87,
+      "mode": 0,
+      "inputs": [
+        {
+          "link": 95,
+          "name": "mask",
+          "type": "MASK"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": [
+            89
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "InvertMask",
+        "ttNbgOverride": {
+          "color": "#222",
+          "bgcolor": "#000",
+          "groupcolor": "#444"
+        }
+      },
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 77,
+      "type": "Colored Image (mtb)",
+      "pos": [
+        3930,
+        1090
+      ],
+      "size": {
+        "0": 210,
+        "1": 140
+      },
+      "flags": {},
+      "order": 92,
+      "mode": 0,
+      "inputs": [
+        {
+          "link": 97,
+          "name": "foreground_image",
+          "type": "IMAGE"
+        },
+        {
+          "link": 98,
+          "name": "foreground_mask",
+          "type": "MASK"
+        },
+        {
+          "link": 99,
+          "name": "width",
+          "type": "INT",
+          "widget": {
+            "name": "width"
+          }
+        },
+        {
+          "link": 100,
+          "name": "height",
+          "type": "INT",
+          "widget": {
+            "name": "height"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            105,
+            114
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Colored Image (mtb)",
+        "ttNbgOverride": {
+          "color": "#222",
+          "bgcolor": "#000",
+          "groupcolor": "#444"
+        }
+      },
+      "widgets_values": [
+        "#ffff00",
+        432,
+        704
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 78,
+      "type": "ImageInvert",
+      "pos": [
+        3640,
+        1010
+      ],
+      "size": {
+        "0": 210,
+        "1": 30
+      },
+      "flags": {},
+      "order": 70,
+      "mode": 0,
+      "inputs": [
+        {
+          "link": 101,
+          "name": "image",
+          "type": "IMAGE"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            97,
+            102,
+            103
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ImageInvert",
+        "ttNbgOverride": {
+          "color": "#222",
+          "bgcolor": "#000",
+          "groupcolor": "#444"
+        }
+      },
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 79,
+      "type": "ImageToMask",
+      "pos": [
+        3640,
+        1080
+      ],
+      "size": {
+        "0": 210,
+        "1": 60
+      },
+      "flags": {},
+      "order": 76,
+      "mode": 0,
+      "inputs": [
+        {
+          "link": 102,
+          "name": "image",
+          "type": "IMAGE"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": [
+            104
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ImageToMask",
+        "ttNbgOverride": {
+          "color": "#222",
+          "bgcolor": "#000",
+          "groupcolor": "#444"
+        }
+      },
+      "widgets_values": [
+        "red"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 80,
+      "type": "GetImageSize+",
+      "pos": [
+        3640,
+        1250
+      ],
+      "size": {
+        "0": 210,
+        "1": 70
+      },
+      "flags": {},
+      "order": 77,
+      "mode": 0,
+      "inputs": [
+        {
+          "link": 103,
+          "name": "image",
+          "type": "IMAGE"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "width",
+          "type": "INT",
+          "links": [
+            99
+          ],
+          "shape": 3,
+          "slot_index": 0
+        },
+        {
+          "name": "height",
+          "type": "INT",
+          "links": [
+            100
+          ],
+          "shape": 3,
+          "slot_index": 1
+        },
+        {
+          "name": "count",
+          "type": "INT",
+          "links": null,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "GetImageSize+",
+        "ttNbgOverride": {
+          "color": "#222",
+          "bgcolor": "#000",
+          "groupcolor": "#444"
+        }
+      },
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 81,
+      "type": "InvertMask",
+      "pos": [
+        3640,
+        1180
+      ],
+      "size": {
+        "0": 210,
+        "1": 30
+      },
+      "flags": {},
+      "order": 85,
+      "mode": 0,
+      "inputs": [
+        {
+          "link": 104,
+          "name": "mask",
+          "type": "MASK"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": [
+            98
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "InvertMask",
+        "ttNbgOverride": {
+          "color": "#222",
+          "bgcolor": "#000",
+          "groupcolor": "#444"
+        }
+      },
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 40,
+      "type": "BlurImageFast",
+      "pos": [
+        5670,
+        1590
+      ],
+      "size": {
+        "0": 210,
+        "1": 82
+      },
+      "flags": {},
+      "order": 118,
+      "mode": 0,
+      "inputs": [
+        {
+          "link": 53,
+          "name": "images",
+          "type": "IMAGE"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            137
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "BlurImageFast"
+      },
+      "widgets_values": [
+        10,
+        10
+      ]
+    },
+    {
+      "id": 54,
+      "type": "Note",
+      "pos": [
+        2220,
+        1710
+      ],
+      "size": {
+        "0": 420,
+        "1": 160
+      },
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "properties": {
+        "text": ""
+      },
+      "widgets_values": [
+        "Audio Filter Cutoffs\n\nAvailable Frequency spectrum = 0hz to 22050hz\n\nLow Cutoff (hz): Frequencies below the set value will be filtered out (i.e. not used to drive reactivity). Keep this > 100-200hz in most cases, you don't really want the super low end since that will tend to cause phase issues and hurt the reactivity.\n\nHigh Cutoff (hz): Frequencies below the set value will be filtered out (i.e. not used to drive reactivity).\n\nImplicit middle band: The low and high cutoff are used to calculate the middle frequency band.\n\n\n"
+      ],
+      "color": "#2a363b",
+      "bgcolor": "#3f5159"
+    },
+    {
+      "id": 64,
+      "type": "BatchCount+",
+      "pos": [
+        3390,
+        2130
+      ],
+      "size": {
+        "0": 210,
+        "1": 30
+      },
+      "flags": {
+        "collapsed": true
+      },
+      "order": 98,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "batch",
+          "type": "*",
+          "link": 78
+        }
+      ],
+      "outputs": [
+        {
+          "name": "INT",
+          "type": "INT",
+          "links": [
+            75
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "BatchCount+"
+      }
+    },
+    {
+      "id": 70,
+      "type": "MaskFromColor+",
+      "pos": [
+        4210,
+        1830
+      ],
+      "size": {
+        "0": 210,
+        "1": 130
+      },
+      "flags": {},
+      "order": 99,
+      "mode": 0,
+      "inputs": [
+        {
+          "link": 87,
+          "name": "image",
+          "type": "IMAGE"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": [
+            68,
+            112
+          ],
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "MaskFromColor+",
+        "ttNbgOverride": {
+          "color": "#222",
+          "bgcolor": "#000",
+          "groupcolor": "#444"
+        }
+      },
+      "widgets_values": [
+        255,
+        0,
+        0,
+        0
+      ],
+      "color": "#322",
+      "bgcolor": "#533"
+    },
+    {
+      "id": 31,
+      "type": "SaltScheduledBinaryComparison",
+      "pos": [
+        3090,
+        1280
+      ],
+      "size": {
+        "0": 260,
+        "1": 100
+      },
+      "flags": {},
+      "order": 57,
+      "mode": 0,
+      "inputs": [
+        {
+          "link": 529,
+          "name": "images",
+          "type": "IMAGE"
+        },
+        {
+          "link": 363,
+          "name": "comparison_schedule",
+          "type": "LIST"
+        },
+        {
+          "link": null,
+          "name": "epsilon_schedule",
+          "type": "LIST"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "links": [
+            101
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "SaltScheduledBinaryComparison"
+      },
+      "widgets_values": [
+        true
+      ],
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 76,
+      "type": "MaskFromColor+",
+      "pos": [
+        4170,
+        1450
+      ],
+      "size": {
+        "0": 210,
+        "1": 130
+      },
+      "flags": {},
+      "order": 100,
+      "mode": 0,
+      "inputs": [
+        {
+          "link": 96,
+          "name": "image",
+          "type": "IMAGE"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": [
+            109
+          ],
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "MaskFromColor+",
+        "ttNbgOverride": {
+          "color": "#222",
+          "bgcolor": "#000",
+          "groupcolor": "#444"
+        }
+      },
+      "widgets_values": [
+        0,
+        255,
+        0,
+        0
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 349,
+      "type": "SaltAudio2VHS",
+      "pos": [
+        -830,
+        1060
+      ],
+      "size": {
+        "0": 210,
+        "1": 30
+      },
+      "flags": {
+        "collapsed": true
+      },
+      "order": 54,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "audio",
+          "type": "AUDIO",
+          "link": 524
+        }
+      ],
+      "outputs": [
+        {
+          "name": "vhs_audio",
+          "type": "VHS_AUDIO",
+          "links": [
+            525
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "SaltAudio2VHS"
+      },
+      "color": "#422342"
+    },
+    {
+      "id": 317,
+      "type": "MathExpression|pysssss",
+      "pos": [
+        -770,
+        1580
+      ],
+      "size": {
+        "0": 320,
+        "1": 120
+      },
+      "flags": {
+        "collapsed": true
+      },
+      "order": 56,
+      "mode": 0,
+      "inputs": [
+        {
+          "link": 480,
+          "name": "a",
+          "type": "INT,FLOAT,IMAGE,LATENT",
+          "slot_index": 0
+        },
+        {
+          "link": null,
+          "name": "b",
+          "type": "INT,FLOAT,IMAGE,LATENT"
+        },
+        {
+          "link": null,
+          "name": "c",
+          "type": "INT,FLOAT,IMAGE,LATENT",
+          "slot_index": 2
+        }
+      ],
+      "outputs": [
+        {
+          "name": "INT",
+          "type": "INT",
+          "links": [
+            490
+          ],
+          "shape": 3,
+          "slot_index": 0
+        },
+        {
+          "name": "FLOAT",
+          "type": "FLOAT",
+          "links": [],
+          "shape": 3,
+          "slot_index": 1
+        }
+      ],
+      "title": "End Frame",
+      "properties": {
+        "Node name for S&R": "MathExpression|pysssss",
+        "ttNbgOverride": {
+          "color": "#222",
+          "bgcolor": "#000",
+          "groupcolor": "#444"
+        }
+      },
+      "widgets_values": [
+        "a-1"
+      ],
+      "color": "#422342"
+    },
+    {
+      "id": 348,
+      "type": "CM_IntToFloat",
+      "pos": [
+        -790,
+        1390
+      ],
+      "size": {
+        "0": 320,
+        "1": 60
+      },
+      "flags": {
+        "collapsed": true
+      },
+      "order": 55,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "a",
+          "type": "INT",
+          "link": 520,
+          "widget": {
+            "name": "a"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "FLOAT",
+          "type": "FLOAT",
+          "links": [
+            521
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CM_IntToFloat"
+      },
+      "widgets_values": [
+        0
+      ],
+      "color": "#422342"
+    },
+    {
+      "id": 157,
+      "type": "SetNode",
+      "pos": [
+        -830,
+        1660
+      ],
+      "size": {
+        "0": 210,
+        "1": 58
+      },
+      "flags": {
+        "collapsed": false
+      },
+      "order": 34,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "INT",
+          "type": "INT",
+          "link": 513
+        }
+      ],
+      "outputs": [
+        {
+          "name": "*",
+          "type": "*",
+          "links": null
+        }
+      ],
+      "title": "Set_Video_Width",
+      "properties": {
+        "previousName": "Video_Width"
+      },
+      "widgets_values": [
+        "Video_Width"
+      ],
+      "color": "#422342"
+    },
+    {
+      "id": 15,
+      "type": "SetNode",
+      "pos": [
+        -830,
+        1560
+      ],
+      "size": {
+        "0": 210,
+        "1": 58
+      },
+      "flags": {
+        "collapsed": false
+      },
+      "order": 69,
+      "mode": 0,
+      "inputs": [
+        {
+          "link": 490,
+          "name": "INT",
+          "type": "INT"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "*",
+          "type": "*",
+          "links": null
+        }
+      ],
+      "title": "Set_end_Frame",
+      "properties": {
+        "previousName": "end_Frame",
+        "ttNbgOverride": {
+          "color": "#222",
+          "bgcolor": "#000",
+          "groupcolor": "#444"
+        }
+      },
+      "widgets_values": [
+        "end_Frame"
+      ],
+      "color": "#422342"
+    },
+    {
+      "id": 159,
+      "type": "SetNode",
+      "pos": [
+        -830,
+        1460
+      ],
+      "size": {
+        "0": 210,
+        "1": 58
+      },
+      "flags": {
+        "collapsed": false
+      },
+      "order": 47,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "INT",
+          "type": "INT",
+          "link": 523
+        }
+      ],
+      "outputs": [
+        {
+          "name": "INT",
+          "type": "INT",
+          "links": [
+            480
+          ],
+          "slot_index": 0
+        }
+      ],
+      "title": "Set_Batch_Size",
+      "properties": {
+        "previousName": "Batch_Size"
+      },
+      "widgets_values": [
+        "Batch_Size"
+      ],
+      "color": "#422342"
+    },
+    {
+      "id": 347,
+      "type": "SetNode",
+      "pos": [
+        -830,
+        1360
+      ],
+      "size": {
+        "0": 210,
+        "1": 58
+      },
+      "flags": {
+        "collapsed": false
+      },
+      "order": 68,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "FLOAT",
+          "type": "FLOAT",
+          "link": 521,
+          "slot_index": 0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "*",
+          "type": "*",
+          "links": [],
+          "slot_index": 0
+        }
+      ],
+      "title": "Set_Frame_rate_Float",
+      "properties": {
+        "previousName": "Frame_rate_Float"
+      },
+      "widgets_values": [
+        "Frame_rate_Float"
+      ],
+      "color": "#422342"
+    },
+    {
+      "id": 324,
+      "type": "SetNode",
+      "pos": [
+        -830,
+        1260
+      ],
+      "size": {
+        "0": 210,
+        "1": 58
+      },
+      "flags": {
+        "collapsed": false
+      },
+      "order": 46,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "INT",
+          "type": "INT",
+          "link": 517
+        }
+      ],
+      "outputs": [
+        {
+          "name": "INT",
+          "type": "INT",
+          "links": [
+            520
+          ],
+          "slot_index": 0
+        }
+      ],
+      "title": "Set_Frame_rate_Int",
+      "properties": {
+        "previousName": "Frame_rate_Int"
+      },
+      "widgets_values": [
+        "Frame_rate_Int"
+      ],
+      "color": "#422342"
+    },
+    {
+      "id": 343,
+      "type": "SetNode",
+      "pos": [
+        -830,
+        1160
+      ],
+      "size": {
+        "0": 210,
+        "1": 58
+      },
+      "flags": {
+        "collapsed": false
+      },
+      "order": 45,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "FLOAT",
+          "type": "FLOAT",
+          "link": 515
+        }
+      ],
+      "outputs": [
+        {
+          "name": "*",
+          "type": "*",
+          "links": null,
+          "slot_index": 0
+        }
+      ],
+      "title": "Set_BPM",
+      "properties": {
+        "previousName": "BPM"
+      },
+      "widgets_values": [
+        "BPM"
+      ],
+      "color": "#422342"
+    },
+    {
+      "id": 316,
+      "type": "SetNode",
+      "pos": [
+        -830,
+        1060
+      ],
+      "size": {
+        "0": 210,
+        "1": 58
+      },
+      "flags": {
+        "collapsed": false
+      },
+      "order": 67,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "VHS_AUDIO",
+          "type": "VHS_AUDIO",
+          "link": 525
+        }
+      ],
+      "outputs": [
+        {
+          "name": "*",
+          "type": "*",
+          "links": [],
+          "slot_index": 0
+        }
+      ],
+      "title": "Set_VHSAudio",
+      "properties": {
+        "previousName": "VHSAudio"
+      },
+      "widgets_values": [
+        "VHSAudio"
+      ],
+      "color": "#422342"
+    },
+    {
+      "id": 158,
+      "type": "SetNode",
+      "pos": [
+        -830,
+        1760
+      ],
+      "size": {
+        "0": 210,
+        "1": 58
+      },
+      "flags": {
+        "collapsed": false
+      },
+      "order": 33,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "INT",
+          "type": "INT",
+          "link": 514
+        }
+      ],
+      "outputs": [
+        {
+          "name": "*",
+          "type": "*",
+          "links": null
+        }
+      ],
+      "title": "Set_Video_Height",
+      "properties": {
+        "previousName": "Video_Height"
+      },
+      "widgets_values": [
+        "Video_Height"
+      ],
+      "color": "#422342"
+    },
+    {
+      "id": 34,
+      "type": "SaltAudioBandpassFilter",
+      "pos": [
+        2300,
+        1410
+      ],
+      "size": {
+        "0": 320,
+        "1": 80
+      },
+      "flags": {
+        "collapsed": false
+      },
+      "order": 40,
+      "mode": 0,
+      "inputs": [
+        {
+          "link": 511,
+          "name": "audio",
+          "type": "AUDIO"
+        },
+        {
+          "link": 45,
+          "name": "low_cutoff_frequency",
+          "type": "INT",
+          "widget": {
+            "name": "low_cutoff_frequency"
+          }
+        },
+        {
+          "link": 46,
+          "name": "high_cutoff_frequency",
+          "type": "INT",
+          "widget": {
+            "name": "high_cutoff_frequency"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "audio",
+          "type": "AUDIO",
+          "links": [
+            57
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "SaltAudioBandpassFilter"
+      },
+      "widgets_values": [
+        450,
+        1000
+      ],
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 58,
+      "type": "Note",
+      "pos": [
+        5320,
+        1860
+      ],
+      "size": {
+        "0": 320,
+        "1": 100
+      },
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "title": "Color Correct",
+      "properties": {
+        "text": ""
+      },
+      "widgets_values": [
+        "Adjust contrast of the grayscaled-colormask before input to QR code controlnet. Help prevent dark spots while helping keep the form of the mask in the final output.  "
+      ],
+      "color": "#2a363b",
+      "bgcolor": "#3f5159"
+    },
+    {
+      "id": 52,
+      "type": "Note",
+      "pos": [
+        2220,
+        1030
+      ],
+      "size": {
+        "0": 410,
+        "1": 150
+      },
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "properties": {
+        "text": ""
+      },
+      "widgets_values": [
+        "Audio2Weights Nodes\n\nThese nodes \n1. Process the audio signal\n2. Separate the audio into 3 frequency bands (low, mid, high)\n3. Convert the bands into frame values which can be used for scheduling"
+      ],
+      "color": "#2a363b",
+      "bgcolor": "#3f5159"
+    },
+    {
+      "id": 53,
+      "type": "Note",
+      "pos": [
+        2710,
+        1030
+      ],
+      "size": {
+        "0": 640,
+        "1": 140
+      },
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "properties": {
+        "text": ""
+      },
+      "widgets_values": [
+        "Schedule Audio Framesync\n\namp_control = dynamic range of the signal, i.e. the range of movement of the mask. 1 = full range of movement, 0 = no movement.\n\namp_offset = the minimum value of the signal, i.e. the smallest size of the mask. 1 = always full max size (not recommended), 0 = when audio is silent shape size is 0.  \n\nThese settings will vary depending on the song and how you want the shapes to overlap."
+      ],
+      "color": "#2a363b",
+      "bgcolor": "#3f5159"
+    },
+    {
+      "id": 342,
+      "type": "INTConstant",
+      "pos": [
+        -1090,
+        1770
+      ],
+      "size": {
+        "0": 210,
+        "1": 60
+      },
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "value",
+          "type": "INT",
+          "links": [
+            514
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "title": "Mask_Height",
+      "properties": {
+        "Node name for S&R": "INTConstant"
+      },
+      "widgets_values": [
+        432
+      ],
+      "color": "#dc7814",
+      "bgcolor": "#c86400"
+    },
+    {
+      "id": 341,
+      "type": "INTConstant",
+      "pos": [
+        -1090,
+        1650
+      ],
+      "size": {
+        "0": 210,
+        "1": 60
+      },
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "value",
+          "type": "INT",
+          "links": [
+            513
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "title": "Mask_Width",
+      "properties": {
+        "Node name for S&R": "INTConstant"
+      },
+      "widgets_values": [
+        768
+      ],
+      "color": "#dc7814",
+      "bgcolor": "#c86400"
+    },
+    {
+      "id": 331,
+      "type": "SetNode",
+      "pos": [
+        -830,
+        960
+      ],
+      "size": {
+        "0": 210,
+        "1": 58
+      },
+      "flags": {
+        "collapsed": false
+      },
+      "order": 44,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "AUDIO",
+          "type": "AUDIO",
+          "link": 509
+        }
+      ],
+      "outputs": [
+        {
+          "name": "AUDIO",
+          "type": "AUDIO",
+          "links": [
+            524
+          ],
+          "slot_index": 0
+        }
+      ],
+      "title": "Set_Audio",
+      "properties": {
+        "previousName": "Audio"
+      },
+      "widgets_values": [
+        "Audio"
+      ],
+      "color": "#422342"
+    },
+    {
+      "id": 97,
+      "type": "VHS_VideoCombine",
+      "pos": [
+        5920,
+        1430
+      ],
+      "size": [
+        380,
+        290
+      ],
+      "flags": {
+        "collapsed": false
+      },
+      "order": 119,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 137
+        },
+        {
+          "name": "audio",
+          "type": "VHS_AUDIO",
+          "link": 627
+        },
+        {
+          "name": "meta_batch",
+          "type": "VHS_BatchManager",
+          "link": null
+        },
+        {
+          "name": "frame_rate",
+          "type": "FLOAT",
+          "link": 527,
+          "widget": {
+            "name": "frame_rate"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Filenames",
+          "type": "VHS_FILENAMES",
+          "links": null,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VHS_VideoCombine"
+      },
+      "widgets_values": {
+        "frame_rate": 30,
+        "loop_count": 0,
+        "filename_prefix": "VORONOI/V",
+        "format": "video/h264-mp4",
+        "pix_fmt": "yuv420p",
+        "crf": 19,
+        "save_metadata": false,
+        "pingpong": false,
+        "save_output": false,
+        "videopreview": {
+          "hidden": false,
+          "paused": false,
+          "params": {
+            "filename": "V_00028-audio.mp4",
+            "subfolder": "VORONOI",
+            "type": "temp",
+            "format": "video/h264-mp4",
+            "frame_rate": 24
+          }
+        }
+      },
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 43,
+      "type": "SaltAudioFramesyncSchedule",
+      "pos": [
+        2710,
+        1670
+      ],
+      "size": {
+        "0": 320,
+        "1": 170
+      },
+      "flags": {
+        "collapsed": false
+      },
+      "order": 49,
+      "mode": 0,
+      "inputs": [
+        {
+          "link": 54,
+          "name": "audio",
+          "type": "AUDIO"
+        },
+        {
+          "link": 476,
+          "name": "frame_rate",
+          "type": "INT",
+          "widget": {
+            "name": "frame_rate"
+          }
+        },
+        {
+          "link": 487,
+          "name": "end_frame",
+          "type": "INT",
+          "widget": {
+            "name": "end_frame"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "average_sum",
+          "type": "LIST",
+          "links": [
+            35
+          ],
+          "shape": 3,
+          "slot_index": 0
+        },
+        {
+          "name": "frame_count",
+          "type": "INT",
+          "links": [],
+          "shape": 3,
+          "slot_index": 1
+        },
+        {
+          "name": "frame_rate",
+          "type": "INT",
+          "links": [],
+          "shape": 3,
+          "slot_index": 2
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "SaltAudioFramesyncSchedule"
+      },
+      "widgets_values": [
+        0.6,
+        0.2,
+        8,
+        0,
+        0,
+        "ease-in-out"
+      ],
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 321,
+      "type": "GetNode",
+      "pos": [
+        1940,
+        1280
+      ],
+      "size": {
+        "0": 210,
+        "1": 58
+      },
+      "flags": {
+        "collapsed": false
+      },
+      "order": 6,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "AUDIO",
+          "type": "AUDIO",
+          "links": [
+            510,
+            511,
+            512
+          ],
+          "slot_index": 0
+        }
+      ],
+      "title": "Get_Audio",
+      "properties": {},
+      "widgets_values": [
+        "Audio"
+      ],
+      "color": "#422342"
+    },
+    {
+      "id": 322,
+      "type": "GetNode",
+      "pos": [
+        1940,
+        1170
+      ],
+      "size": {
+        "0": 210,
+        "1": 58
+      },
+      "flags": {
+        "collapsed": false
+      },
+      "order": 7,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "INT",
+          "type": "INT",
+          "links": [
+            474,
+            475,
+            476
+          ],
+          "slot_index": 0
+        }
+      ],
+      "title": "Get_Frame_rate_Int",
+      "properties": {},
+      "widgets_values": [
+        "Frame_rate_Int"
+      ],
+      "color": "#422342"
+    },
+    {
+      "id": 45,
+      "type": "SaltAudioFramesyncSchedule",
+      "pos": [
+        2710,
+        1250
+      ],
+      "size": {
+        "0": 320,
+        "1": 170
+      },
+      "flags": {
+        "collapsed": false
+      },
+      "order": 48,
+      "mode": 0,
+      "inputs": [
+        {
+          "link": 60,
+          "name": "audio",
+          "type": "AUDIO"
+        },
+        {
+          "link": 474,
+          "name": "frame_rate",
+          "type": "INT",
+          "widget": {
+            "name": "frame_rate"
+          }
+        },
+        {
+          "link": 489,
+          "name": "end_frame",
+          "type": "INT",
+          "widget": {
+            "name": "end_frame"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "average_sum",
+          "type": "LIST",
+          "links": [
+            363
+          ],
+          "shape": 3,
+          "slot_index": 0
+        },
+        {
+          "name": "frame_count",
+          "type": "INT",
+          "links": [],
+          "shape": 3,
+          "slot_index": 1
+        },
+        {
+          "name": "frame_rate",
+          "type": "INT",
+          "links": [],
+          "shape": 3,
+          "slot_index": 2
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "SaltAudioFramesyncSchedule"
+      },
+      "widgets_values": [
+        0.6,
+        0.35000000000000003,
+        8,
+        0,
+        0,
+        "ease-in-out"
+      ],
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 328,
+      "type": "GetNode",
+      "pos": [
+        1940,
+        1690
+      ],
+      "size": {
+        "0": 210,
+        "1": 58
+      },
+      "flags": {
+        "collapsed": false
+      },
+      "order": 8,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "INT",
+          "type": "INT",
+          "links": [
+            487,
+            488,
+            489
+          ],
+          "slot_index": 0
+        }
+      ],
+      "title": "Get_Batch_Size",
+      "properties": {},
+      "widgets_values": [
+        "Batch_Size"
+      ],
+      "color": "#422342"
+    },
+    {
+      "id": 356,
+      "type": "GetNode",
+      "pos": [
+        1940,
+        1060
+      ],
+      "size": {
+        "0": 210,
+        "1": 58
+      },
+      "flags": {
+        "collapsed": false
+      },
+      "order": 9,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            529,
+            530,
+            531
+          ],
+          "slot_index": 0
+        }
+      ],
+      "title": "Get_Grayscale_Voronoi",
+      "properties": {},
+      "widgets_values": [
+        "Grayscale_Voronoi"
+      ],
+      "color": "#422342"
+    },
+    {
+      "id": 29,
+      "type": "SaltScheduledBinaryComparison",
+      "pos": [
+        3090,
+        1680
+      ],
+      "size": {
+        "0": 260,
+        "1": 100
+      },
+      "flags": {},
+      "order": 58,
+      "mode": 0,
+      "inputs": [
+        {
+          "link": 531,
+          "name": "images",
+          "type": "IMAGE"
+        },
+        {
+          "link": 35,
+          "name": "comparison_schedule",
+          "type": "LIST"
+        },
+        {
+          "link": null,
+          "name": "epsilon_schedule",
+          "type": "LIST"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "links": [
+            83
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "SaltScheduledBinaryComparison"
+      },
+      "widgets_values": [
+        false
+      ],
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 30,
+      "type": "SaltScheduledBinaryComparison",
+      "pos": [
+        3090,
+        1480
+      ],
+      "size": {
+        "0": 260,
+        "1": 100
+      },
+      "flags": {},
+      "order": 59,
+      "mode": 0,
+      "inputs": [
+        {
+          "link": 530,
+          "name": "images",
+          "type": "IMAGE"
+        },
+        {
+          "link": 37,
+          "name": "comparison_schedule",
+          "type": "LIST"
+        },
+        {
+          "link": null,
+          "name": "epsilon_schedule",
+          "type": "LIST"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "links": [
+            92
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "SaltScheduledBinaryComparison"
+      },
+      "widgets_values": [
+        false
+      ],
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 60,
+      "type": "Colored Image (mtb)",
+      "pos": [
+        3940,
+        2120
+      ],
+      "size": {
+        "0": 210,
+        "1": 140
+      },
+      "flags": {},
+      "order": 105,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "foreground_image",
+          "type": "IMAGE",
+          "link": 67
+        },
+        {
+          "name": "foreground_mask",
+          "type": "MASK",
+          "link": 68
+        },
+        {
+          "name": "width",
+          "type": "INT",
+          "link": 69,
+          "widget": {
+            "name": "width"
+          }
+        },
+        {
+          "name": "height",
+          "type": "INT",
+          "link": 70,
+          "widget": {
+            "name": "height"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            110
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Colored Image (mtb)",
+        "ttNbgOverride": {
+          "color": "#222",
+          "bgcolor": "#000",
+          "groupcolor": "#444"
+        }
+      },
+      "widgets_values": [
+        "#0000ff",
+        320,
+        576
+      ],
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 82,
+      "type": "MaskFromColor+",
+      "pos": [
+        4170,
+        1100
+      ],
+      "size": {
+        "0": 210,
+        "1": 130
+      },
+      "flags": {},
+      "order": 96,
+      "mode": 0,
+      "inputs": [
+        {
+          "link": 105,
+          "name": "image",
+          "type": "IMAGE"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": [
+            115
+          ],
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "MaskFromColor+",
+        "ttNbgOverride": {
+          "color": "#222",
+          "bgcolor": "#000",
+          "groupcolor": "#444"
+        }
+      },
+      "widgets_values": [
+        255,
+        255,
+        0,
+        0
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 84,
+      "type": "ImageCompositeMasked",
+      "pos": [
+        4470,
+        1640
+      ],
+      "size": {
+        "0": 320,
+        "1": 150
+      },
+      "flags": {},
+      "order": 103,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "destination",
+          "type": "IMAGE",
+          "link": 107
+        },
+        {
+          "name": "source",
+          "type": "IMAGE",
+          "link": 108
+        },
+        {
+          "name": "mask",
+          "type": "MASK",
+          "link": 109
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            113
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ImageCompositeMasked"
+      },
+      "widgets_values": [
+        0,
+        0,
+        false
+      ],
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 86,
+      "type": "ImageCompositeMasked",
+      "pos": [
+        4470,
+        1420
+      ],
+      "size": {
+        "0": 320,
+        "1": 150
+      },
+      "flags": {},
+      "order": 106,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "destination",
+          "type": "IMAGE",
+          "link": 113
+        },
+        {
+          "name": "source",
+          "type": "IMAGE",
+          "link": 114
+        },
+        {
+          "name": "mask",
+          "type": "MASK",
+          "link": 115
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            111
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ImageCompositeMasked"
+      },
+      "widgets_values": [
+        0,
+        0,
+        false
+      ],
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 85,
+      "type": "ImageCompositeMasked",
+      "pos": [
+        4480,
+        1860
+      ],
+      "size": {
+        "0": 320,
+        "1": 150
+      },
+      "flags": {},
+      "order": 109,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "destination",
+          "type": "IMAGE",
+          "link": 110
+        },
+        {
+          "name": "source",
+          "type": "IMAGE",
+          "link": 111
+        },
+        {
+          "name": "mask",
+          "type": "MASK",
+          "link": 112
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            532,
+            533
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ImageCompositeMasked"
+      },
+      "widgets_values": [
+        0,
+        0,
+        false
+      ],
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 11,
+      "type": "Image To Mask",
+      "pos": [
+        5320,
+        1410
+      ],
+      "size": {
+        "0": 210,
+        "1": 60
+      },
+      "flags": {},
+      "order": 112,
+      "mode": 0,
+      "inputs": [
+        {
+          "link": 533,
+          "name": "image",
+          "type": "IMAGE"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": [
+            12
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Image To Mask",
+        "ttNbgOverride": {
+          "color": "#222",
+          "bgcolor": "#000",
+          "groupcolor": "#444"
+        }
+      },
+      "widgets_values": [
+        "intensity"
+      ],
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 263,
+      "type": "Image To Mask",
+      "pos": [
+        1000,
+        1580
+      ],
+      "size": {
+        "0": 320,
+        "1": 60
+      },
+      "flags": {
+        "collapsed": true
+      },
+      "order": 64,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 618
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": [
+            343
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Image To Mask"
+      },
+      "widgets_values": [
+        "alpha"
+      ]
+    },
+    {
+      "id": 56,
+      "type": "Note",
+      "pos": [
+        2710,
+        1900
+      ],
+      "size": {
+        "0": 660,
+        "1": 170
+      },
+      "flags": {},
+      "order": 10,
+      "mode": 0,
+      "title": "Scheduled Binary Comparison",
+      "properties": {
+        "text": ""
+      },
+      "widgets_values": [
+        "The nodes take a grayscale image and turns it into a binary (black and white) image according to a given threshold.\n\nComparison Schedule: Takes a threshold value for each frame from 0-1. Given a perfect gradient, value 0 would return all white and value 1 would return all black. So, value 0.5 would turn all pixels > 0.5 black and < 0.5 white.\n\nUse Epsilon: Essentially turns the shape hollow. So if you have, for example, circular gradient input image, it'll return a donut shaped mask.\n\nEpsilon Schedule: when use_epsilon is enabled, the epsilon schedule controls the thickness of the shape."
+      ],
+      "color": "#2a363b",
+      "bgcolor": "#3f5159"
+    },
+    {
+      "id": 24,
+      "type": "SaltKeyframeScheduler",
+      "pos": [
+        -180,
+        1420
+      ],
+      "size": {
+        "0": 480,
+        "1": 164
+      },
+      "flags": {
+        "collapsed": false
+      },
+      "order": 35,
+      "mode": 0,
+      "inputs": [
+        {
+          "link": null,
+          "name": "a",
+          "type": "*",
+          "slot_index": 0
+        },
+        {
+          "link": null,
+          "name": "b",
+          "type": "*",
+          "slot_index": 1
+        },
+        {
+          "link": 482,
+          "name": "end_frame",
+          "type": "INT",
+          "widget": {
+            "name": "end_frame"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "schedule_list",
+          "type": "LIST",
+          "links": [
+            600,
+            610
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "title": "Detail Scheduler",
+      "properties": {
+        "Node name for S&R": "SaltKeyframeScheduler",
+        "ttNbgOverride": {
+          "color": "#222",
+          "bgcolor": "#000",
+          "groupcolor": "#444"
+        }
+      },
+      "widgets_values": [
+        "0:(100)",
+        "None",
+        64,
+        5
+      ],
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 25,
+      "type": "SaltKeyframeScheduler",
+      "pos": [
+        -180,
+        1640
+      ],
+      "size": {
+        "0": 480,
+        "1": 164
+      },
+      "flags": {
+        "collapsed": false
+      },
+      "order": 37,
+      "mode": 0,
+      "inputs": [
+        {
+          "link": null,
+          "name": "a",
+          "type": "*"
+        },
+        {
+          "link": null,
+          "name": "b",
+          "type": "*",
+          "slot_index": 1
+        },
+        {
+          "link": 486,
+          "name": "end_frame",
+          "type": "INT",
+          "widget": {
+            "name": "end_frame"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "schedule_list",
+          "type": "LIST",
+          "links": [
+            601,
+            611
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "title": "Randomness Scheduler",
+      "properties": {
+        "Node name for S&R": "SaltKeyframeScheduler",
+        "ttNbgOverride": {
+          "color": "#222",
+          "bgcolor": "#000",
+          "groupcolor": "#444"
+        }
+      },
+      "widgets_values": [
+        "0:(0), z:(0)",
+        "ease-in-out",
+        64,
+        5
+      ],
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 26,
+      "type": "SaltKeyframeScheduler",
+      "pos": [
+        -180,
+        1860
+      ],
+      "size": {
+        "0": 480,
+        "1": 164
+      },
+      "flags": {
+        "collapsed": false
+      },
+      "order": 36,
+      "mode": 0,
+      "inputs": [
+        {
+          "link": null,
+          "name": "a",
+          "type": "*"
+        },
+        {
+          "link": null,
+          "name": "b",
+          "type": "*",
+          "slot_index": 1
+        },
+        {
+          "link": 483,
+          "name": "end_frame",
+          "type": "INT",
+          "widget": {
+            "name": "end_frame"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "schedule_list",
+          "type": "LIST",
+          "links": [
+            602,
+            612
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "SaltKeyframeScheduler",
+        "ttNbgOverride": {
+          "color": "#222",
+          "bgcolor": "#000",
+          "groupcolor": "#444"
+        }
+      },
+      "widgets_values": [
+        "0:(0)",
+        "None",
+        64,
+        2
+      ],
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 42,
+      "type": "GetNode",
+      "pos": [
+        700,
+        1500
+      ],
+      "size": {
+        "0": 210,
+        "1": 58
+      },
+      "flags": {
+        "collapsed": true
+      },
+      "order": 11,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "INT",
+          "type": "INT",
+          "links": [
+            604,
+            615
+          ],
+          "slot_index": 0
+        }
+      ],
+      "title": "Get_Video_Height",
+      "properties": {},
+      "widgets_values": [
+        "Video_Height"
+      ],
+      "color": "#2a363b",
+      "bgcolor": "#3f5159"
+    },
+    {
+      "id": 41,
+      "type": "GetNode",
+      "pos": [
+        540,
+        1500
+      ],
+      "size": {
+        "0": 210,
+        "1": 58
+      },
+      "flags": {
+        "collapsed": true
+      },
+      "order": 12,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "INT",
+          "type": "INT",
+          "links": [
+            605,
+            614
+          ],
+          "slot_index": 0
+        }
+      ],
+      "title": "Get_Video_Width",
+      "properties": {},
+      "widgets_values": [
+        "Video_Width"
+      ],
+      "color": "#2a363b",
+      "bgcolor": "#3f5159"
+    },
+    {
+      "id": 262,
+      "type": "Image To Mask",
+      "pos": [
+        1010,
+        1190
+      ],
+      "size": {
+        "0": 320,
+        "1": 60
+      },
+      "flags": {
+        "collapsed": true
+      },
+      "order": 60,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 606
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": [
+            341
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Image To Mask"
+      },
+      "widgets_values": [
+        "alpha"
+      ]
+    },
+    {
+      "id": 325,
+      "type": "GetNode",
+      "pos": [
+        -470,
+        1400
+      ],
+      "size": {
+        "0": 210,
+        "1": 58
+      },
+      "flags": {
+        "collapsed": false
+      },
+      "order": 13,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "INT",
+          "type": "INT",
+          "links": [
+            619
+          ],
+          "slot_index": 0
+        }
+      ],
+      "title": "Get_Frame_rate_Int",
+      "properties": {},
+      "widgets_values": [
+        "Frame_rate_Int"
+      ],
+      "color": "#422342"
+    },
+    {
+      "id": 327,
+      "type": "GetNode",
+      "pos": [
+        -470,
+        1610
+      ],
+      "size": {
+        "0": 210,
+        "1": 58
+      },
+      "flags": {
+        "collapsed": false
+      },
+      "order": 14,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "INT",
+          "type": "INT",
+          "links": [
+            482,
+            483,
+            486,
+            603,
+            613,
+            621
+          ],
+          "slot_index": 0
+        }
+      ],
+      "title": "Get_Batch_Size",
+      "properties": {},
+      "widgets_values": [
+        "Batch_Size"
+      ],
+      "color": "#422342"
+    },
+    {
+      "id": 277,
+      "type": "Note",
+      "pos": [
+        500,
+        950
+      ],
+      "size": {
+        "0": 740,
+        "1": 180
+      },
+      "flags": {},
+      "order": 15,
+      "mode": 0,
+      "title": "Switches and composit",
+      "properties": {
+        "text": ""
+      },
+      "widgets_values": [
+        "橙色的节点皆可调整，不同的设定都有不同的结果，多尝试，选择你最喜欢的\nThere are two switches and a compositing node below:\n1.Invert Generator 1: Inverts the image from generator 1 to create different geometric shapes. \n2.Invert Generator 2: Inverts The second Generator to create different geometric shapes. \n3.Pointer Duff Image Composite: Changes the way the images interact with each-other and gives you more control over how the images interact with each-other. "
+      ],
+      "color": "#2a363b",
+      "bgcolor": "#3f5159"
+    },
+    {
+      "id": 96,
+      "type": "VHS_VideoCombine",
+      "pos": [
+        4880,
+        1460
+      ],
+      "size": [
+        380,
+        290
+      ],
+      "flags": {
+        "collapsed": false
+      },
+      "order": 111,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 532
+        },
+        {
+          "name": "audio",
+          "type": "VHS_AUDIO",
+          "link": 135
+        },
+        {
+          "name": "meta_batch",
+          "type": "VHS_BatchManager",
+          "link": null
+        },
+        {
+          "name": "frame_rate",
+          "type": "FLOAT",
+          "link": 526,
+          "widget": {
+            "name": "frame_rate"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Filenames",
+          "type": "VHS_FILENAMES",
+          "links": null,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VHS_VideoCombine"
+      },
+      "widgets_values": {
+        "frame_rate": 30,
+        "loop_count": 0,
+        "filename_prefix": "VORONOI/V",
+        "format": "video/h264-mp4",
+        "pix_fmt": "yuv420p",
+        "crf": 19,
+        "save_metadata": false,
+        "pingpong": false,
+        "save_output": false,
+        "videopreview": {
+          "hidden": false,
+          "paused": false,
+          "params": {
+            "filename": "V_00027-audio.mp4",
+            "subfolder": "VORONOI",
+            "type": "temp",
+            "format": "video/h264-mp4",
+            "frame_rate": 24
+          }
+        }
+      },
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 33,
+      "type": "SaltAudioBandpassFilter",
+      "pos": [
+        2300,
+        1560
+      ],
+      "size": {
+        "0": 320,
+        "1": 80
+      },
+      "flags": {
+        "collapsed": false
+      },
+      "order": 39,
+      "mode": 0,
+      "inputs": [
+        {
+          "link": 512,
+          "name": "audio",
+          "type": "AUDIO"
+        },
+        {
+          "link": 43,
+          "name": "high_cutoff_frequency",
+          "type": "INT",
+          "widget": {
+            "name": "high_cutoff_frequency"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "audio",
+          "type": "AUDIO",
+          "links": [
+            54
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "SaltAudioBandpassFilter"
+      },
+      "widgets_values": [
+        20,
+        450
+      ],
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 37,
+      "type": "INTConstant",
+      "pos": [
+        1940,
+        1410
+      ],
+      "size": {
+        "0": 210,
+        "1": 60
+      },
+      "flags": {},
+      "order": 16,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "value",
+          "type": "INT",
+          "links": [
+            46,
+            48
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "title": "High Cutoff (hz)",
+      "properties": {
+        "Node name for S&R": "INTConstant"
+      },
+      "widgets_values": [
+        6000
+      ],
+      "color": "#2a363b",
+      "bgcolor": "#3f5159"
+    },
+    {
+      "id": 35,
+      "type": "SaltAudioBandpassFilter",
+      "pos": [
+        2300,
+        1280
+      ],
+      "size": {
+        "0": 320,
+        "1": 80
+      },
+      "flags": {
+        "collapsed": false
+      },
+      "order": 38,
+      "mode": 0,
+      "inputs": [
+        {
+          "link": 510,
+          "name": "audio",
+          "type": "AUDIO"
+        },
+        {
+          "link": 48,
+          "name": "low_cutoff_frequency",
+          "type": "INT",
+          "widget": {
+            "name": "low_cutoff_frequency"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "audio",
+          "type": "AUDIO",
+          "links": [
+            60
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "SaltAudioBandpassFilter"
+      },
+      "widgets_values": [
+        1000,
+        20000
+      ],
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 310,
+      "type": "Note",
+      "pos": [
+        -1190,
+        1010
+      ],
+      "size": {
+        "0": 310,
+        "1": 120
+      },
+      "flags": {},
+      "order": 17,
+      "mode": 0,
+      "properties": {
+        "text": ""
+      },
+      "widgets_values": [
+        "bpm-detector\nhttps://audioalter.com/bpm-detector\n\nDuration_Seconds\n0=输出全部，但是音乐太长会跑不完"
+      ],
+      "color": "#2a363b",
+      "bgcolor": "#3f5159"
+    },
+    {
+      "id": 351,
+      "type": "GetNode",
+      "pos": [
+        4550,
+        2190
+      ],
+      "size": {
+        "0": 210,
+        "1": 58
+      },
+      "flags": {
+        "collapsed": false
+      },
+      "order": 18,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "FLOAT",
+          "type": "FLOAT",
+          "links": [
+            526,
+            527
+          ],
+          "slot_index": 0
+        }
+      ],
+      "title": "Get_Frame_rate_Float",
+      "properties": {},
+      "widgets_values": [
+        "Frame_rate_Float"
+      ],
+      "color": "#422342"
+    },
+    {
+      "id": 59,
+      "type": "GetNode",
+      "pos": [
+        4550,
+        2310
+      ],
+      "size": {
+        "0": 210,
+        "1": 58
+      },
+      "flags": {
+        "collapsed": false
+      },
+      "order": 19,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "VHS_AUDIO",
+          "type": "VHS_AUDIO",
+          "links": [
+            135,
+            627
+          ],
+          "slot_index": 0
+        }
+      ],
+      "title": "Get_VHSAudio",
+      "properties": {},
+      "widgets_values": [
+        "VHSAudio"
+      ],
+      "color": "#422342"
+    },
+    {
+      "id": 36,
+      "type": "INTConstant",
+      "pos": [
+        1940,
+        1540
+      ],
+      "size": {
+        "0": 210,
+        "1": 60
+      },
+      "flags": {},
+      "order": 20,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "value",
+          "type": "INT",
+          "links": [
+            43,
+            45
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "title": "Low Cutoff (hz)",
+      "properties": {
+        "Node name for S&R": "INTConstant"
+      },
+      "widgets_values": [
+        350
+      ],
+      "color": "#2a363b",
+      "bgcolor": "#3f5159"
+    },
+    {
+      "id": 393,
+      "type": "EmptyImage",
+      "pos": [
+        2410,
+        3290
+      ],
+      "size": {
+        "0": 320,
+        "1": 100
+      },
+      "flags": {
+        "collapsed": false
+      },
+      "order": 41,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "batch_size",
+          "type": "INT",
+          "link": 640,
+          "widget": {
+            "name": "batch_size"
+          }
+        },
+        {
+          "name": "width",
+          "type": "INT",
+          "link": 641,
+          "widget": {
+            "name": "width"
+          }
+        },
+        {
+          "name": "height",
+          "type": "INT",
+          "link": 642,
+          "widget": {
+            "name": "height"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            636
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "EmptyImage",
+        "ttNbgOverride": {
+          "color": "#222",
+          "bgcolor": "#000",
+          "groupcolor": "#444"
+        }
+      },
+      "widgets_values": [
+        320,
+        576,
+        128,
+        0
+      ],
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 395,
+      "type": "GetNode",
+      "pos": [
+        2000,
+        2830
+      ],
+      "size": {
+        "0": 210,
+        "1": 58
+      },
+      "flags": {
+        "collapsed": false
+      },
+      "order": 21,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "INT",
+          "type": "INT",
+          "links": [
+            645
+          ],
+          "slot_index": 0
+        }
+      ],
+      "title": "Get_Frame_rate_Int",
+      "properties": {},
+      "widgets_values": [
+        "Frame_rate_Int"
+      ],
+      "color": "#422342"
+    },
+    {
+      "id": 396,
+      "type": "GetNode",
+      "pos": [
+        2000,
+        3070
+      ],
+      "size": {
+        "0": 210,
+        "1": 58
+      },
+      "flags": {
+        "collapsed": false
+      },
+      "order": 22,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "INT",
+          "type": "INT",
+          "links": [
+            640,
+            646
+          ],
+          "slot_index": 0
+        }
+      ],
+      "title": "Get_Batch_Size",
+      "properties": {},
+      "widgets_values": [
+        "Batch_Size"
+      ],
+      "color": "#422342"
+    },
+    {
+      "id": 397,
+      "type": "GetNode",
+      "pos": [
+        2000,
+        2710
+      ],
+      "size": {
+        "0": 210,
+        "1": 58
+      },
+      "flags": {
+        "collapsed": false
+      },
+      "order": 23,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            647
+          ],
+          "slot_index": 0
+        }
+      ],
+      "title": "Get_Grayscale_Voronoi",
+      "properties": {},
+      "widgets_values": [
+        "Grayscale_Voronoi"
+      ],
+      "color": "#422342"
+    },
+    {
+      "id": 401,
+      "type": "Colored Image (mtb)",
+      "pos": [
+        3180,
+        2960
+      ],
+      "size": {
+        "0": 210,
+        "1": 140
+      },
+      "flags": {},
+      "order": 95,
+      "mode": 0,
+      "inputs": [
+        {
+          "link": 649,
+          "name": "foreground_image",
+          "type": "IMAGE"
+        },
+        {
+          "link": 650,
+          "name": "foreground_mask",
+          "type": "MASK"
+        },
+        {
+          "link": 651,
+          "name": "width",
+          "type": "INT",
+          "widget": {
+            "name": "width"
+          }
+        },
+        {
+          "link": 652,
+          "name": "height",
+          "type": "INT",
+          "widget": {
+            "name": "height"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            657,
+            659
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Colored Image (mtb)",
+        "ttNbgOverride": {
+          "color": "#222",
+          "bgcolor": "#000",
+          "groupcolor": "#444"
+        }
+      },
+      "widgets_values": [
+        "#ffff00",
+        432,
+        704
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 402,
+      "type": "ImageInvert",
+      "pos": [
+        2850,
+        3090
+      ],
+      "size": {
+        "0": 210,
+        "1": 30
+      },
+      "flags": {},
+      "order": 75,
+      "mode": 0,
+      "inputs": [
+        {
+          "link": 653,
+          "name": "image",
+          "type": "IMAGE"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            649,
+            654,
+            655
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ImageInvert",
+        "ttNbgOverride": {
+          "color": "#222",
+          "bgcolor": "#000",
+          "groupcolor": "#444"
+        }
+      },
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 403,
+      "type": "ImageToMask",
+      "pos": [
+        2850,
+        3160
+      ],
+      "size": {
+        "0": 210,
+        "1": 60
+      },
+      "flags": {},
+      "order": 83,
+      "mode": 0,
+      "inputs": [
+        {
+          "link": 654,
+          "name": "image",
+          "type": "IMAGE"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": [
+            637,
+            656
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ImageToMask",
+        "ttNbgOverride": {
+          "color": "#222",
+          "bgcolor": "#000",
+          "groupcolor": "#444"
+        }
+      },
+      "widgets_values": [
+        "red"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 404,
+      "type": "GetImageSize+",
+      "pos": [
+        2850,
+        3330
+      ],
+      "size": {
+        "0": 210,
+        "1": 70
+      },
+      "flags": {},
+      "order": 84,
+      "mode": 0,
+      "inputs": [
+        {
+          "link": 655,
+          "name": "image",
+          "type": "IMAGE"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "width",
+          "type": "INT",
+          "links": [
+            651
+          ],
+          "shape": 3,
+          "slot_index": 0
+        },
+        {
+          "name": "height",
+          "type": "INT",
+          "links": [
+            652
+          ],
+          "shape": 3,
+          "slot_index": 1
+        },
+        {
+          "name": "count",
+          "type": "INT",
+          "links": null,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "GetImageSize+",
+        "ttNbgOverride": {
+          "color": "#222",
+          "bgcolor": "#000",
+          "groupcolor": "#444"
+        }
+      },
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 405,
+      "type": "InvertMask",
+      "pos": [
+        2850,
+        3260
+      ],
+      "size": {
+        "0": 210,
+        "1": 30
+      },
+      "flags": {},
+      "order": 91,
+      "mode": 0,
+      "inputs": [
+        {
+          "link": 656,
+          "name": "mask",
+          "type": "MASK"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": [
+            650
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "InvertMask",
+        "ttNbgOverride": {
+          "color": "#222",
+          "bgcolor": "#000",
+          "groupcolor": "#444"
+        }
+      },
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 406,
+      "type": "MaskFromColor+",
+      "pos": [
+        3440,
+        2960
+      ],
+      "size": {
+        "0": 210,
+        "1": 130
+      },
+      "flags": {},
+      "order": 101,
+      "mode": 0,
+      "inputs": [
+        {
+          "link": 657,
+          "name": "image",
+          "type": "IMAGE"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": [
+            660
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "MaskFromColor+",
+        "ttNbgOverride": {
+          "color": "#222",
+          "bgcolor": "#000",
+          "groupcolor": "#444"
+        }
+      },
+      "widgets_values": [
+        255,
+        255,
+        0,
+        0
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 407,
+      "type": "ImageCompositeMasked",
+      "pos": [
+        3710,
+        3160
+      ],
+      "size": {
+        "0": 320,
+        "1": 150
+      },
+      "flags": {},
+      "order": 104,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "destination",
+          "type": "IMAGE",
+          "link": 658
+        },
+        {
+          "name": "source",
+          "type": "IMAGE",
+          "link": 659
+        },
+        {
+          "name": "mask",
+          "type": "MASK",
+          "link": 660
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            661,
+            664
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ImageCompositeMasked"
+      },
+      "widgets_values": [
+        0,
+        0,
+        false
+      ],
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 409,
+      "type": "Image To Mask",
+      "pos": [
+        4550,
+        3010
+      ],
+      "size": {
+        "0": 210,
+        "1": 60
+      },
+      "flags": {},
+      "order": 108,
+      "mode": 0,
+      "inputs": [
+        {
+          "link": 664,
+          "name": "image",
+          "type": "IMAGE"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": [
+            665
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Image To Mask",
+        "ttNbgOverride": {
+          "color": "#222",
+          "bgcolor": "#000",
+          "groupcolor": "#444"
+        }
+      },
+      "widgets_values": [
+        "intensity"
+      ],
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 410,
+      "type": "MaskToImage",
+      "pos": [
+        4550,
+        3110
+      ],
+      "size": {
+        "0": 210,
+        "1": 30
+      },
+      "flags": {},
+      "order": 110,
+      "mode": 0,
+      "inputs": [
+        {
+          "link": 665,
+          "name": "mask",
+          "type": "MASK"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            666
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "MaskToImage",
+        "ttNbgOverride": {
+          "color": "#222",
+          "bgcolor": "#000",
+          "groupcolor": "#444"
+        }
+      },
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 411,
+      "type": "Color Correct (mtb)",
+      "pos": [
+        4550,
+        3190
+      ],
+      "size": {
+        "0": 320,
+        "1": 230
+      },
+      "flags": {},
+      "order": 113,
+      "mode": 0,
+      "inputs": [
+        {
+          "link": 666,
+          "name": "image",
+          "type": "IMAGE"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            667
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Color Correct (mtb)",
+        "ttNbgOverride": {
+          "color": "#222",
+          "bgcolor": "#000",
+          "groupcolor": "#444"
+        }
+      },
+      "widgets_values": [
+        true,
+        1,
+        0.5,
+        0.5,
+        0,
+        0,
+        1,
+        1
+      ],
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 412,
+      "type": "BlurImageFast",
+      "pos": [
+        4900,
+        3190
+      ],
+      "size": {
+        "0": 210,
+        "1": 82
+      },
+      "flags": {},
+      "order": 115,
+      "mode": 0,
+      "inputs": [
+        {
+          "link": 667,
+          "name": "images",
+          "type": "IMAGE"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            668
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "BlurImageFast"
+      },
+      "widgets_values": [
+        10,
+        10
+      ]
+    },
+    {
+      "id": 413,
+      "type": "VHS_VideoCombine",
+      "pos": [
+        5150,
+        3030
+      ],
+      "size": [
+        380,
+        290
+      ],
+      "flags": {
+        "collapsed": false
+      },
+      "order": 117,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 668
+        },
+        {
+          "name": "audio",
+          "type": "VHS_AUDIO",
+          "link": 669
+        },
+        {
+          "name": "meta_batch",
+          "type": "VHS_BatchManager",
+          "link": null
+        },
+        {
+          "name": "frame_rate",
+          "type": "FLOAT",
+          "link": 670,
+          "widget": {
+            "name": "frame_rate"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Filenames",
+          "type": "VHS_FILENAMES",
+          "links": null,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VHS_VideoCombine"
+      },
+      "widgets_values": {
+        "frame_rate": 30,
+        "loop_count": 0,
+        "filename_prefix": "VORONOI/V",
+        "format": "video/h264-mp4",
+        "pix_fmt": "yuv420p",
+        "crf": 19,
+        "save_metadata": false,
+        "pingpong": false,
+        "save_output": false,
+        "videopreview": {
+          "hidden": false,
+          "paused": false,
+          "params": {
+            "filename": "V_00126-audio.mp4",
+            "subfolder": "VORONOI",
+            "type": "temp",
+            "format": "video/h264-mp4",
+            "frame_rate": 24
+          }
+        }
+      },
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 414,
+      "type": "GetNode",
+      "pos": [
+        2000,
+        3230
+      ],
+      "size": {
+        "0": 210,
+        "1": 58
+      },
+      "flags": {
+        "collapsed": false
+      },
+      "order": 24,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "INT",
+          "type": "INT",
+          "links": [
+            639,
+            642
+          ],
+          "slot_index": 0
+        }
+      ],
+      "title": "Get_Video_Height",
+      "properties": {},
+      "widgets_values": [
+        "Video_Height"
+      ],
+      "color": "#422342"
+    },
+    {
+      "id": 415,
+      "type": "GetNode",
+      "pos": [
+        2000,
+        3340
+      ],
+      "size": {
+        "0": 210,
+        "1": 58
+      },
+      "flags": {
+        "collapsed": false
+      },
+      "order": 25,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "INT",
+          "type": "INT",
+          "links": [
+            638,
+            641
+          ],
+          "slot_index": 0
+        }
+      ],
+      "title": "Get_Video_Width",
+      "properties": {},
+      "widgets_values": [
+        "Video_Width"
+      ],
+      "color": "#422342"
+    },
+    {
+      "id": 416,
+      "type": "GetNode",
+      "pos": [
+        3820,
+        2770
+      ],
+      "size": {
+        "0": 210,
+        "1": 58
+      },
+      "flags": {
+        "collapsed": false
+      },
+      "order": 26,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "FLOAT",
+          "type": "FLOAT",
+          "links": [
+            663,
+            670
+          ],
+          "slot_index": 0
+        }
+      ],
+      "title": "Get_Frame_rate_Float",
+      "properties": {},
+      "widgets_values": [
+        "Frame_rate_Float"
+      ],
+      "color": "#422342"
+    },
+    {
+      "id": 417,
+      "type": "GetNode",
+      "pos": [
+        3820,
+        2880
+      ],
+      "size": {
+        "0": 210,
+        "1": 58
+      },
+      "flags": {
+        "collapsed": false
+      },
+      "order": 27,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "VHS_AUDIO",
+          "type": "VHS_AUDIO",
+          "links": [
+            662,
+            669
+          ],
+          "slot_index": 0
+        }
+      ],
+      "title": "Get_VHSAudio",
+      "properties": {},
+      "widgets_values": [
+        "VHSAudio"
+      ],
+      "color": "#422342"
+    },
+    {
+      "id": 391,
+      "type": "VHS_VideoCombine",
+      "pos": [
+        1340,
+        750
+      ],
+      "size": [
+        380,
+        290
+      ],
+      "flags": {},
+      "order": 62,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 629
+        },
+        {
+          "name": "audio",
+          "type": "VHS_AUDIO",
+          "link": null
+        },
+        {
+          "name": "meta_batch",
+          "type": "VHS_BatchManager",
+          "link": null
+        },
+        {
+          "name": "frame_rate",
+          "type": "FLOAT",
+          "link": 630,
+          "widget": {
+            "name": "frame_rate"
+          },
+          "slot_index": 3
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Filenames",
+          "type": "VHS_FILENAMES",
+          "links": null,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VHS_VideoCombine"
+      },
+      "widgets_values": {
+        "frame_rate": 30,
+        "loop_count": 0,
+        "filename_prefix": "voronoi_tunnel",
+        "format": "video/h264-mp4",
+        "pix_fmt": "yuv420p",
+        "crf": 19,
+        "save_metadata": false,
+        "pingpong": false,
+        "save_output": false,
+        "videopreview": {
+          "hidden": false,
+          "paused": false,
+          "params": {
+            "filename": "voronoi_tunnel_00113.mp4",
+            "subfolder": "",
+            "type": "temp",
+            "format": "video/h264-mp4",
+            "frame_rate": 24
+          }
+        }
+      },
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 266,
+      "type": "ImageInvert",
+      "pos": [
+        1020,
+        1230
+      ],
+      "size": {
+        "0": 210,
+        "1": 30
+      },
+      "flags": {
+        "collapsed": true
+      },
+      "order": 61,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 607
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            345
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ImageInvert"
+      }
+    },
+    {
+      "id": 264,
+      "type": "ImageInvert",
+      "pos": [
+        1010,
+        1540
+      ],
+      "size": {
+        "0": 210,
+        "1": 30
+      },
+      "flags": {
+        "collapsed": true
+      },
+      "order": 63,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 617
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            344
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ImageInvert"
+      }
+    },
+    {
+      "id": 326,
+      "type": "GetNode",
+      "pos": [
+        -470,
+        1500
+      ],
+      "size": {
+        "0": 210,
+        "1": 58
+      },
+      "flags": {
+        "collapsed": false
+      },
+      "order": 28,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "FLOAT",
+          "type": "FLOAT",
+          "links": [
+            620
+          ],
+          "slot_index": 0
+        }
+      ],
+      "title": "Get_BPM",
+      "properties": {},
+      "widgets_values": [
+        "BPM"
+      ],
+      "color": "#422342"
+    },
+    {
+      "id": 48,
+      "type": "VHS_VideoCombine",
+      "pos": [
+        480,
+        1860
+      ],
+      "size": [
+        870,
+        290
+      ],
+      "flags": {},
+      "order": 88,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 535
+        },
+        {
+          "name": "audio",
+          "type": "VHS_AUDIO",
+          "link": null
+        },
+        {
+          "name": "meta_batch",
+          "type": "VHS_BatchManager",
+          "link": null
+        },
+        {
+          "name": "frame_rate",
+          "type": "FLOAT",
+          "link": 312,
+          "widget": {
+            "name": "frame_rate"
+          },
+          "slot_index": 3
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Filenames",
+          "type": "VHS_FILENAMES",
+          "links": null,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VHS_VideoCombine"
+      },
+      "widgets_values": {
+        "frame_rate": 30,
+        "loop_count": 0,
+        "filename_prefix": "voronoi_tunnel",
+        "format": "video/h264-mp4",
+        "pix_fmt": "yuv420p",
+        "crf": 19,
+        "save_metadata": false,
+        "pingpong": false,
+        "save_output": false,
+        "videopreview": {
+          "hidden": false,
+          "paused": false,
+          "params": {
+            "filename": "voronoi_tunnel_00116.mp4",
+            "subfolder": "",
+            "type": "temp",
+            "format": "video/h264-mp4",
+            "frame_rate": 24
+          }
+        }
+      },
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 267,
+      "type": "Switch any [Crystools]",
+      "pos": [
+        920,
+        1270
+      ],
+      "size": {
+        "0": 320,
+        "1": 80
+      },
+      "flags": {},
+      "order": 73,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "on_true",
+          "type": "*",
+          "link": 345
+        },
+        {
+          "name": "on_false",
+          "type": "*",
+          "link": 608
+        }
+      ],
+      "outputs": [
+        {
+          "name": "*",
+          "type": "*",
+          "links": [
+            340
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "title": "Invert Generator 2",
+      "properties": {
+        "Node name for S&R": "Switch any [Crystools]"
+      },
+      "widgets_values": [
+        true
+      ],
+      "color": "#dc7814",
+      "bgcolor": "#c86400"
+    },
+    {
+      "id": 265,
+      "type": "Switch any [Crystools]",
+      "pos": [
+        920,
+        1410
+      ],
+      "size": {
+        "0": 320,
+        "1": 80
+      },
+      "flags": {},
+      "order": 74,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "on_true",
+          "type": "*",
+          "link": 344
+        },
+        {
+          "name": "on_false",
+          "type": "*",
+          "link": 616
+        }
+      ],
+      "outputs": [
+        {
+          "name": "*",
+          "type": "*",
+          "links": [
+            342
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "title": "Invert Generator 1",
+      "properties": {
+        "Node name for S&R": "Switch any [Crystools]"
+      },
+      "widgets_values": [
+        true
+      ],
+      "color": "#dc7814",
+      "bgcolor": "#c86400"
+    },
+    {
+      "id": 101,
+      "type": "GetNode",
+      "pos": [
+        1030,
+        1780
+      ],
+      "size": {
+        "0": 210,
+        "1": 58
+      },
+      "flags": {
+        "collapsed": false
+      },
+      "order": 29,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "FLOAT",
+          "type": "FLOAT",
+          "links": [
+            312,
+            630,
+            672
+          ],
+          "slot_index": 0
+        }
+      ],
+      "title": "Get_Frame_rate_Float",
+      "properties": {},
+      "widgets_values": [
+        "Frame_rate_Float"
+      ],
+      "color": "#422342"
+    },
+    {
+      "id": 355,
+      "type": "SetNode",
+      "pos": [
+        1300,
+        1540
+      ],
+      "size": {
+        "0": 210,
+        "1": 58
+      },
+      "flags": {
+        "collapsed": false
+      },
+      "order": 89,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "link": 536
+        }
+      ],
+      "outputs": [
+        {
+          "name": "*",
+          "type": "*",
+          "links": null
+        }
+      ],
+      "title": "Set_Grayscale_Voronoi",
+      "properties": {
+        "previousName": "Grayscale_Voronoi"
+      },
+      "widgets_values": [
+        "Grayscale_Voronoi"
+      ],
+      "color": "#422342"
+    },
+    {
+      "id": 398,
+      "type": "SaltAudioBandpassFilter",
+      "pos": [
+        2410,
+        2930
+      ],
+      "size": {
+        "0": 320,
+        "1": 82
+      },
+      "flags": {
+        "collapsed": false
+      },
+      "order": 43,
+      "mode": 0,
+      "inputs": [
+        {
+          "link": 643,
+          "name": "audio",
+          "type": "AUDIO"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "audio",
+          "type": "AUDIO",
+          "links": [
+            644
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "SaltAudioBandpassFilter"
+      },
+      "widgets_values": [
+        20,
+        20000
+      ],
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 418,
+      "type": "VHS_VideoCombine",
+      "pos": [
+        1330,
+        1320
+      ],
+      "size": [
+        380,
+        290
+      ],
+      "flags": {},
+      "order": 65,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 671
+        },
+        {
+          "name": "audio",
+          "type": "VHS_AUDIO",
+          "link": null
+        },
+        {
+          "name": "meta_batch",
+          "type": "VHS_BatchManager",
+          "link": null
+        },
+        {
+          "name": "frame_rate",
+          "type": "FLOAT",
+          "link": 672,
+          "widget": {
+            "name": "frame_rate"
+          },
+          "slot_index": 3
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Filenames",
+          "type": "VHS_FILENAMES",
+          "links": null,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VHS_VideoCombine"
+      },
+      "widgets_values": {
+        "frame_rate": 30,
+        "loop_count": 0,
+        "filename_prefix": "voronoi_tunnel",
+        "format": "video/h264-mp4",
+        "pix_fmt": "yuv420p",
+        "crf": 19,
+        "save_metadata": false,
+        "pingpong": false,
+        "save_output": false,
+        "videopreview": {
+          "hidden": false,
+          "paused": false,
+          "params": {
+            "filename": "voronoi_tunnel_00114.mp4",
+            "subfolder": "",
+            "type": "temp",
+            "format": "video/h264-mp4",
+            "frame_rate": 24
+          }
+        }
+      },
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 392,
+      "type": "Colored Image (mtb)",
+      "pos": [
+        3180,
+        3240
+      ],
+      "size": {
+        "0": 210,
+        "1": 140
+      },
+      "flags": {},
+      "order": 90,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "foreground_image",
+          "type": "IMAGE",
+          "link": 636
+        },
+        {
+          "name": "foreground_mask",
+          "type": "MASK",
+          "link": 637
+        },
+        {
+          "name": "width",
+          "type": "INT",
+          "link": 638,
+          "widget": {
+            "name": "width"
+          }
+        },
+        {
+          "name": "height",
+          "type": "INT",
+          "link": 639,
+          "widget": {
+            "name": "height"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            658
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Colored Image (mtb)",
+        "ttNbgOverride": {
+          "color": "#222",
+          "bgcolor": "#000",
+          "groupcolor": "#444"
+        }
+      },
+      "widgets_values": [
+        "#0000ff",
+        320,
+        576
+      ],
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 394,
+      "type": "GetNode",
+      "pos": [
+        2000,
+        2930
+      ],
+      "size": {
+        "0": 210,
+        "1": 58
+      },
+      "flags": {
+        "collapsed": false
+      },
+      "order": 30,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "AUDIO",
+          "type": "AUDIO",
+          "links": [
+            643
+          ],
+          "slot_index": 0
+        }
+      ],
+      "title": "Get_Audio",
+      "properties": {},
+      "widgets_values": [
+        "Audio"
+      ],
+      "color": "#422342"
+    },
+    {
+      "id": 386,
+      "type": "FAIScaleScheduler",
+      "pos": [
+        -180,
+        1200
+      ],
+      "size": {
+        "0": 480,
+        "1": 150
+      },
+      "flags": {},
+      "order": 42,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "a",
+          "type": "*",
+          "link": 619
+        },
+        {
+          "name": "b",
+          "type": "*",
+          "link": 620
+        },
+        {
+          "name": "end_frame",
+          "type": "INT",
+          "link": 621,
+          "widget": {
+            "name": "end_frame"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "schedule_list",
+          "type": "LIST",
+          "links": [
+            623,
+            624
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "FAIScaleScheduler"
+      },
+      "widgets_values": [
+        "平滑递增变化（Smooth Incremental Change） - 适合舒缓的音乐节奏",
+        "linear",
+        0,
+        5
+      ],
+      "color": "#ff3cae",
+      "bgcolor": "#ff289a"
+    },
+    {
+      "id": 384,
+      "type": "FAI_Voronoi_Generator",
+      "pos": [
+        500,
+        1190
+      ],
+      "size": {
+        "0": 380,
+        "1": 250
+      },
+      "flags": {},
+      "order": 51,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "x_schedule",
+          "type": "LIST",
+          "link": null
+        },
+        {
+          "name": "y_schedule",
+          "type": "LIST",
+          "link": null
+        },
+        {
+          "name": "scale_schedule",
+          "type": "LIST",
+          "link": 623
+        },
+        {
+          "name": "detail_schedule",
+          "type": "LIST",
+          "link": 600
+        },
+        {
+          "name": "randomness_schedule",
+          "type": "LIST",
+          "link": 601
+        },
+        {
+          "name": "seed_schedule",
+          "type": "LIST",
+          "link": 602
+        },
+        {
+          "name": "batch_size",
+          "type": "INT",
+          "link": 603,
+          "widget": {
+            "name": "batch_size"
+          }
+        },
+        {
+          "name": "width",
+          "type": "INT",
+          "link": 605,
+          "widget": {
+            "name": "width"
+          }
+        },
+        {
+          "name": "height",
+          "type": "INT",
+          "link": 604,
+          "widget": {
+            "name": "height"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "links": [
+            606,
+            607,
+            608,
+            629
+          ],
+          "shape": 3,
+          "slot_index": 0
+        },
+        {
+          "name": "batch_size",
+          "type": "INT",
+          "links": null,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "FAI_Voronoi_Generator"
+      },
+      "widgets_values": [
+        0,
+        64,
+        64,
+        "kaleidoscope_radiation_α (万花筒_放射线_α)",
+        "cuda"
+      ],
+      "color": "#ff289a",
+      "bgcolor": "#ff1486"
+    },
+    {
+      "id": 385,
+      "type": "FAI_Voronoi_Generator",
+      "pos": [
+        500,
+        1550
+      ],
+      "size": {
+        "0": 380,
+        "1": 250
+      },
+      "flags": {},
+      "order": 52,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "x_schedule",
+          "type": "LIST",
+          "link": null
+        },
+        {
+          "name": "y_schedule",
+          "type": "LIST",
+          "link": null
+        },
+        {
+          "name": "scale_schedule",
+          "type": "LIST",
+          "link": 624
+        },
+        {
+          "name": "detail_schedule",
+          "type": "LIST",
+          "link": 610
+        },
+        {
+          "name": "randomness_schedule",
+          "type": "LIST",
+          "link": 611
+        },
+        {
+          "name": "seed_schedule",
+          "type": "LIST",
+          "link": 612
+        },
+        {
+          "name": "batch_size",
+          "type": "INT",
+          "link": 613,
+          "widget": {
+            "name": "batch_size"
+          }
+        },
+        {
+          "name": "width",
+          "type": "INT",
+          "link": 614,
+          "widget": {
+            "name": "width"
+          }
+        },
+        {
+          "name": "height",
+          "type": "INT",
+          "link": 615,
+          "widget": {
+            "name": "height"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "links": [
+            616,
+            617,
+            618,
+            671
+          ],
+          "shape": 3,
+          "slot_index": 0
+        },
+        {
+          "name": "batch_size",
+          "type": "INT",
+          "links": null,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "FAI_Voronoi_Generator"
+      },
+      "widgets_values": [
+        0,
+        64,
+        64,
+        "kaleidoscope_radiation_γ (万花筒_放射线_γ)",
+        "cuda"
+      ],
+      "color": "#ff289a",
+      "bgcolor": "#ff1486"
+    },
+    {
+      "id": 339,
+      "type": "SaltLoadAudio",
+      "pos": [
+        -1200,
+        1200
+      ],
+      "size": {
+        "0": 320,
+        "1": 214
+      },
+      "flags": {},
+      "order": 31,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "audio",
+          "type": "AUDIO",
+          "links": [
+            509
+          ],
+          "shape": 3,
+          "slot_index": 0
+        },
+        {
+          "name": "bpm",
+          "type": "FLOAT",
+          "links": [
+            515
+          ],
+          "shape": 3,
+          "slot_index": 1
+        },
+        {
+          "name": "frame_rate",
+          "type": "INT",
+          "links": [
+            517
+          ],
+          "shape": 3,
+          "slot_index": 2
+        },
+        {
+          "name": "frame_count",
+          "type": "INT",
+          "links": [
+            523
+          ],
+          "shape": 3,
+          "slot_index": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "SaltLoadAudio"
+      },
+      "widgets_values": [
+        "D:\\AIGC\\Fantasy_AI_Studio\\Music_Sync_prooject_V2\\Source\\New_WAV.WAV",
+        80,
+        127,
+        24,
+        23
+      ],
+      "color": "#dc7814",
+      "bgcolor": "#c86400"
+    },
+    {
+      "id": 261,
+      "type": "PorterDuffImageComposite",
+      "pos": [
+        920,
+        1620
+      ],
+      "size": {
+        "0": 320,
+        "1": 120
+      },
+      "flags": {},
+      "order": 82,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "source",
+          "type": "IMAGE",
+          "link": 340
+        },
+        {
+          "name": "source_alpha",
+          "type": "MASK",
+          "link": 341
+        },
+        {
+          "name": "destination",
+          "type": "IMAGE",
+          "link": 342
+        },
+        {
+          "name": "destination_alpha",
+          "type": "MASK",
+          "link": 343
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            535,
+            536
+          ],
+          "shape": 3,
+          "slot_index": 0
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "PorterDuffImageComposite"
+      },
+      "widgets_values": [
+        "LIGHTEN"
+      ],
+      "color": "#dc7814",
+      "bgcolor": "#c86400"
+    },
+    {
+      "id": 408,
+      "type": "VHS_VideoCombine",
+      "pos": [
+        4100,
+        3020
+      ],
+      "size": [
+        380,
+        290
+      ],
+      "flags": {
+        "collapsed": false
+      },
+      "order": 107,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 661
+        },
+        {
+          "name": "audio",
+          "type": "VHS_AUDIO",
+          "link": 662
+        },
+        {
+          "name": "meta_batch",
+          "type": "VHS_BatchManager",
+          "link": null
+        },
+        {
+          "name": "frame_rate",
+          "type": "FLOAT",
+          "link": 663,
+          "widget": {
+            "name": "frame_rate"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Filenames",
+          "type": "VHS_FILENAMES",
+          "links": null,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VHS_VideoCombine"
+      },
+      "widgets_values": {
+        "frame_rate": 30,
+        "loop_count": 0,
+        "filename_prefix": "VORONOI/V",
+        "format": "video/h264-mp4",
+        "pix_fmt": "yuv420p",
+        "crf": 19,
+        "save_metadata": false,
+        "pingpong": false,
+        "save_output": false,
+        "videopreview": {
+          "hidden": false,
+          "paused": false,
+          "params": {
+            "filename": "V_00125-audio.mp4",
+            "subfolder": "VORONOI",
+            "type": "temp",
+            "format": "video/h264-mp4",
+            "frame_rate": 24
+          }
+        }
+      },
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 400,
+      "type": "SaltScheduledBinaryComparison",
+      "pos": [
+        2810,
+        2930
+      ],
+      "size": {
+        "0": 260,
+        "1": 100
+      },
+      "flags": {},
+      "order": 66,
+      "mode": 0,
+      "inputs": [
+        {
+          "link": 647,
+          "name": "images",
+          "type": "IMAGE"
+        },
+        {
+          "link": 648,
+          "name": "comparison_schedule",
+          "type": "LIST"
+        },
+        {
+          "link": null,
+          "name": "epsilon_schedule",
+          "type": "LIST"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "links": [
+            653
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "SaltScheduledBinaryComparison"
+      },
+      "widgets_values": [
+        true
+      ],
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 399,
+      "type": "SaltAudioFramesyncSchedule",
+      "pos": [
+        2410,
+        3050
+      ],
+      "size": {
+        "0": 320,
+        "1": 170
+      },
+      "flags": {
+        "collapsed": false
+      },
+      "order": 53,
+      "mode": 0,
+      "inputs": [
+        {
+          "link": 644,
+          "name": "audio",
+          "type": "AUDIO"
+        },
+        {
+          "link": 645,
+          "name": "frame_rate",
+          "type": "INT",
+          "widget": {
+            "name": "frame_rate"
+          }
+        },
+        {
+          "link": 646,
+          "name": "end_frame",
+          "type": "INT",
+          "widget": {
+            "name": "end_frame"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "average_sum",
+          "type": "LIST",
+          "links": [
+            648
+          ],
+          "shape": 3,
+          "slot_index": 0
+        },
+        {
+          "name": "frame_count",
+          "type": "INT",
+          "links": [],
+          "shape": 3,
+          "slot_index": 1
+        },
+        {
+          "name": "frame_rate",
+          "type": "INT",
+          "links": [],
+          "shape": 3,
+          "slot_index": 2
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "SaltAudioFramesyncSchedule"
+      },
+      "widgets_values": [
+        0.6,
+        0.35000000000000003,
+        8,
+        0,
+        0,
+        "bounce-in-out"
+      ],
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 57,
+      "type": "Note",
+      "pos": [
+        4460,
+        1070
+      ],
+      "size": {
+        "0": 363.94287109375,
+        "1": 284.19683837890625
+      },
+      "flags": {},
+      "order": 32,
+      "mode": 0,
+      "title": "Color Mask Compositing",
+      "properties": {
+        "text": ""
+      },
+      "widgets_values": [
+        "This compositing set up stacks the color masks like so:\n\ncenter: yellow\nmiddle: green\nouter: red\nbackground: magenta\n\nFYI, in addition to being used for the IPA and conditioning, this mask gets turned to grayscale and fed into the QR code controlnet the contrast between these colors actually has an effect on the output. So you may want to adjust to taste depending on what you're going for."
+      ],
+      "color": "#2a363b",
+      "bgcolor": "#3f5159"
+    }
+  ],
+  "links": [
+    [
+      12,
+      11,
+      0,
+      12,
+      0,
+      "MASK"
+    ],
+    [
+      13,
+      12,
+      0,
+      13,
+      0,
+      "IMAGE"
+    ],
+    [
+      35,
+      43,
+      0,
+      29,
+      1,
+      "LIST"
+    ],
+    [
+      37,
+      44,
+      0,
+      30,
+      1,
+      "LIST"
+    ],
+    [
+      43,
+      36,
+      0,
+      33,
+      1,
+      "INT"
+    ],
+    [
+      45,
+      36,
+      0,
+      34,
+      1,
+      "INT"
+    ],
+    [
+      46,
+      37,
+      0,
+      34,
+      2,
+      "INT"
+    ],
+    [
+      48,
+      37,
+      0,
+      35,
+      1,
+      "INT"
+    ],
+    [
+      53,
+      13,
+      0,
+      40,
+      0,
+      "IMAGE"
+    ],
+    [
+      54,
+      33,
+      0,
+      43,
+      0,
+      "AUDIO"
+    ],
+    [
+      57,
+      34,
+      0,
+      44,
+      0,
+      "AUDIO"
+    ],
+    [
+      60,
+      35,
+      0,
+      45,
+      0,
+      "AUDIO"
+    ],
+    [
+      67,
+      63,
+      0,
+      60,
+      0,
+      "IMAGE"
+    ],
+    [
+      68,
+      70,
+      0,
+      60,
+      1,
+      "MASK"
+    ],
+    [
+      69,
+      61,
+      0,
+      60,
+      2,
+      "INT"
+    ],
+    [
+      70,
+      61,
+      1,
+      60,
+      3,
+      "INT"
+    ],
+    [
+      71,
+      65,
+      0,
+      61,
+      0,
+      "IMAGE"
+    ],
+    [
+      75,
+      64,
+      0,
+      63,
+      0,
+      "INT"
+    ],
+    [
+      76,
+      61,
+      0,
+      63,
+      1,
+      "INT"
+    ],
+    [
+      77,
+      61,
+      1,
+      63,
+      2,
+      "INT"
+    ],
+    [
+      78,
+      65,
+      0,
+      64,
+      0,
+      "*"
+    ],
+    [
+      79,
+      66,
+      0,
+      65,
+      0,
+      "IMAGE"
+    ],
+    [
+      80,
+      69,
+      0,
+      65,
+      1,
+      "MASK"
+    ],
+    [
+      81,
+      68,
+      0,
+      65,
+      2,
+      "INT"
+    ],
+    [
+      82,
+      68,
+      1,
+      65,
+      3,
+      "INT"
+    ],
+    [
+      83,
+      29,
+      0,
+      66,
+      0,
+      "IMAGE"
+    ],
+    [
+      84,
+      66,
+      0,
+      67,
+      0,
+      "IMAGE"
+    ],
+    [
+      85,
+      66,
+      0,
+      68,
+      0,
+      "IMAGE"
+    ],
+    [
+      86,
+      67,
+      0,
+      69,
+      0,
+      "MASK"
+    ],
+    [
+      87,
+      65,
+      0,
+      70,
+      0,
+      "IMAGE"
+    ],
+    [
+      88,
+      72,
+      0,
+      71,
+      0,
+      "IMAGE"
+    ],
+    [
+      89,
+      75,
+      0,
+      71,
+      1,
+      "MASK"
+    ],
+    [
+      90,
+      74,
+      0,
+      71,
+      2,
+      "INT"
+    ],
+    [
+      91,
+      74,
+      1,
+      71,
+      3,
+      "INT"
+    ],
+    [
+      92,
+      30,
+      0,
+      72,
+      0,
+      "IMAGE"
+    ],
+    [
+      93,
+      72,
+      0,
+      73,
+      0,
+      "IMAGE"
+    ],
+    [
+      94,
+      72,
+      0,
+      74,
+      0,
+      "IMAGE"
+    ],
+    [
+      95,
+      73,
+      0,
+      75,
+      0,
+      "MASK"
+    ],
+    [
+      96,
+      71,
+      0,
+      76,
+      0,
+      "IMAGE"
+    ],
+    [
+      97,
+      78,
+      0,
+      77,
+      0,
+      "IMAGE"
+    ],
+    [
+      98,
+      81,
+      0,
+      77,
+      1,
+      "MASK"
+    ],
+    [
+      99,
+      80,
+      0,
+      77,
+      2,
+      "INT"
+    ],
+    [
+      100,
+      80,
+      1,
+      77,
+      3,
+      "INT"
+    ],
+    [
+      101,
+      31,
+      0,
+      78,
+      0,
+      "IMAGE"
+    ],
+    [
+      102,
+      78,
+      0,
+      79,
+      0,
+      "IMAGE"
+    ],
+    [
+      103,
+      78,
+      0,
+      80,
+      0,
+      "IMAGE"
+    ],
+    [
+      104,
+      79,
+      0,
+      81,
+      0,
+      "MASK"
+    ],
+    [
+      105,
+      77,
+      0,
+      82,
+      0,
+      "IMAGE"
+    ],
+    [
+      107,
+      65,
+      0,
+      84,
+      0,
+      "IMAGE"
+    ],
+    [
+      108,
+      71,
+      0,
+      84,
+      1,
+      "IMAGE"
+    ],
+    [
+      109,
+      76,
+      0,
+      84,
+      2,
+      "MASK"
+    ],
+    [
+      110,
+      60,
+      0,
+      85,
+      0,
+      "IMAGE"
+    ],
+    [
+      111,
+      86,
+      0,
+      85,
+      1,
+      "IMAGE"
+    ],
+    [
+      112,
+      70,
+      0,
+      85,
+      2,
+      "MASK"
+    ],
+    [
+      113,
+      84,
+      0,
+      86,
+      0,
+      "IMAGE"
+    ],
+    [
+      114,
+      77,
+      0,
+      86,
+      1,
+      "IMAGE"
+    ],
+    [
+      115,
+      82,
+      0,
+      86,
+      2,
+      "MASK"
+    ],
+    [
+      135,
+      59,
+      0,
+      96,
+      1,
+      "VHS_AUDIO"
+    ],
+    [
+      137,
+      40,
+      0,
+      97,
+      0,
+      "IMAGE"
+    ],
+    [
+      312,
+      101,
+      0,
+      48,
+      3,
+      "FLOAT"
+    ],
+    [
+      340,
+      267,
+      0,
+      261,
+      0,
+      "IMAGE"
+    ],
+    [
+      341,
+      262,
+      0,
+      261,
+      1,
+      "MASK"
+    ],
+    [
+      342,
+      265,
+      0,
+      261,
+      2,
+      "IMAGE"
+    ],
+    [
+      343,
+      263,
+      0,
+      261,
+      3,
+      "MASK"
+    ],
+    [
+      344,
+      264,
+      0,
+      265,
+      0,
+      "*"
+    ],
+    [
+      345,
+      266,
+      0,
+      267,
+      0,
+      "*"
+    ],
+    [
+      363,
+      45,
+      0,
+      31,
+      1,
+      "LIST"
+    ],
+    [
+      474,
+      322,
+      0,
+      45,
+      1,
+      "INT"
+    ],
+    [
+      475,
+      322,
+      0,
+      44,
+      1,
+      "INT"
+    ],
+    [
+      476,
+      322,
+      0,
+      43,
+      1,
+      "INT"
+    ],
+    [
+      480,
+      159,
+      0,
+      317,
+      0,
+      "INT,FLOAT,IMAGE,LATENT"
+    ],
+    [
+      482,
+      327,
+      0,
+      24,
+      2,
+      "INT"
+    ],
+    [
+      483,
+      327,
+      0,
+      26,
+      2,
+      "INT"
+    ],
+    [
+      486,
+      327,
+      0,
+      25,
+      2,
+      "INT"
+    ],
+    [
+      487,
+      328,
+      0,
+      43,
+      2,
+      "INT"
+    ],
+    [
+      488,
+      328,
+      0,
+      44,
+      2,
+      "INT"
+    ],
+    [
+      489,
+      328,
+      0,
+      45,
+      2,
+      "INT"
+    ],
+    [
+      490,
+      317,
+      0,
+      15,
+      0,
+      "INT"
+    ],
+    [
+      509,
+      339,
+      0,
+      331,
+      0,
+      "AUDIO"
+    ],
+    [
+      510,
+      321,
+      0,
+      35,
+      0,
+      "AUDIO"
+    ],
+    [
+      511,
+      321,
+      0,
+      34,
+      0,
+      "AUDIO"
+    ],
+    [
+      512,
+      321,
+      0,
+      33,
+      0,
+      "AUDIO"
+    ],
+    [
+      513,
+      341,
+      0,
+      157,
+      0,
+      "INT"
+    ],
+    [
+      514,
+      342,
+      0,
+      158,
+      0,
+      "INT"
+    ],
+    [
+      515,
+      339,
+      1,
+      343,
+      0,
+      "*"
+    ],
+    [
+      517,
+      339,
+      2,
+      324,
+      0,
+      "INT"
+    ],
+    [
+      520,
+      324,
+      0,
+      348,
+      0,
+      "INT"
+    ],
+    [
+      521,
+      348,
+      0,
+      347,
+      0,
+      "*"
+    ],
+    [
+      523,
+      339,
+      3,
+      159,
+      0,
+      "INT"
+    ],
+    [
+      524,
+      331,
+      0,
+      349,
+      0,
+      "AUDIO"
+    ],
+    [
+      525,
+      349,
+      0,
+      316,
+      0,
+      "VHS_AUDIO"
+    ],
+    [
+      526,
+      351,
+      0,
+      96,
+      3,
+      "FLOAT"
+    ],
+    [
+      527,
+      351,
+      0,
+      97,
+      3,
+      "FLOAT"
+    ],
+    [
+      529,
+      356,
+      0,
+      31,
+      0,
+      "IMAGE"
+    ],
+    [
+      530,
+      356,
+      0,
+      30,
+      0,
+      "IMAGE"
+    ],
+    [
+      531,
+      356,
+      0,
+      29,
+      0,
+      "IMAGE"
+    ],
+    [
+      532,
+      85,
+      0,
+      96,
+      0,
+      "IMAGE"
+    ],
+    [
+      533,
+      85,
+      0,
+      11,
+      0,
+      "IMAGE"
+    ],
+    [
+      535,
+      261,
+      0,
+      48,
+      0,
+      "IMAGE"
+    ],
+    [
+      536,
+      261,
+      0,
+      355,
+      0,
+      "*"
+    ],
+    [
+      600,
+      24,
+      0,
+      384,
+      3,
+      "LIST"
+    ],
+    [
+      601,
+      25,
+      0,
+      384,
+      4,
+      "LIST"
+    ],
+    [
+      602,
+      26,
+      0,
+      384,
+      5,
+      "LIST"
+    ],
+    [
+      603,
+      327,
+      0,
+      384,
+      6,
+      "INT"
+    ],
+    [
+      604,
+      42,
+      0,
+      384,
+      8,
+      "INT"
+    ],
+    [
+      605,
+      41,
+      0,
+      384,
+      7,
+      "INT"
+    ],
+    [
+      606,
+      384,
+      0,
+      262,
+      0,
+      "IMAGE"
+    ],
+    [
+      607,
+      384,
+      0,
+      266,
+      0,
+      "IMAGE"
+    ],
+    [
+      608,
+      384,
+      0,
+      267,
+      1,
+      "*"
+    ],
+    [
+      610,
+      24,
+      0,
+      385,
+      3,
+      "LIST"
+    ],
+    [
+      611,
+      25,
+      0,
+      385,
+      4,
+      "LIST"
+    ],
+    [
+      612,
+      26,
+      0,
+      385,
+      5,
+      "LIST"
+    ],
+    [
+      613,
+      327,
+      0,
+      385,
+      6,
+      "INT"
+    ],
+    [
+      614,
+      41,
+      0,
+      385,
+      7,
+      "INT"
+    ],
+    [
+      615,
+      42,
+      0,
+      385,
+      8,
+      "INT"
+    ],
+    [
+      616,
+      385,
+      0,
+      265,
+      1,
+      "*"
+    ],
+    [
+      617,
+      385,
+      0,
+      264,
+      0,
+      "IMAGE"
+    ],
+    [
+      618,
+      385,
+      0,
+      263,
+      0,
+      "IMAGE"
+    ],
+    [
+      619,
+      325,
+      0,
+      386,
+      0,
+      "*"
+    ],
+    [
+      620,
+      326,
+      0,
+      386,
+      1,
+      "*"
+    ],
+    [
+      621,
+      327,
+      0,
+      386,
+      2,
+      "INT"
+    ],
+    [
+      623,
+      386,
+      0,
+      384,
+      2,
+      "LIST"
+    ],
+    [
+      624,
+      386,
+      0,
+      385,
+      2,
+      "LIST"
+    ],
+    [
+      627,
+      59,
+      0,
+      97,
+      1,
+      "VHS_AUDIO"
+    ],
+    [
+      629,
+      384,
+      0,
+      391,
+      0,
+      "IMAGE"
+    ],
+    [
+      630,
+      101,
+      0,
+      391,
+      3,
+      "FLOAT"
+    ],
+    [
+      636,
+      393,
+      0,
+      392,
+      0,
+      "IMAGE"
+    ],
+    [
+      637,
+      403,
+      0,
+      392,
+      1,
+      "MASK"
+    ],
+    [
+      638,
+      415,
+      0,
+      392,
+      2,
+      "INT"
+    ],
+    [
+      639,
+      414,
+      0,
+      392,
+      3,
+      "INT"
+    ],
+    [
+      640,
+      396,
+      0,
+      393,
+      0,
+      "INT"
+    ],
+    [
+      641,
+      415,
+      0,
+      393,
+      1,
+      "INT"
+    ],
+    [
+      642,
+      414,
+      0,
+      393,
+      2,
+      "INT"
+    ],
+    [
+      643,
+      394,
+      0,
+      398,
+      0,
+      "AUDIO"
+    ],
+    [
+      644,
+      398,
+      0,
+      399,
+      0,
+      "AUDIO"
+    ],
+    [
+      645,
+      395,
+      0,
+      399,
+      1,
+      "INT"
+    ],
+    [
+      646,
+      396,
+      0,
+      399,
+      2,
+      "INT"
+    ],
+    [
+      647,
+      397,
+      0,
+      400,
+      0,
+      "IMAGE"
+    ],
+    [
+      648,
+      399,
+      0,
+      400,
+      1,
+      "LIST"
+    ],
+    [
+      649,
+      402,
+      0,
+      401,
+      0,
+      "IMAGE"
+    ],
+    [
+      650,
+      405,
+      0,
+      401,
+      1,
+      "MASK"
+    ],
+    [
+      651,
+      404,
+      0,
+      401,
+      2,
+      "INT"
+    ],
+    [
+      652,
+      404,
+      1,
+      401,
+      3,
+      "INT"
+    ],
+    [
+      653,
+      400,
+      0,
+      402,
+      0,
+      "IMAGE"
+    ],
+    [
+      654,
+      402,
+      0,
+      403,
+      0,
+      "IMAGE"
+    ],
+    [
+      655,
+      402,
+      0,
+      404,
+      0,
+      "IMAGE"
+    ],
+    [
+      656,
+      403,
+      0,
+      405,
+      0,
+      "MASK"
+    ],
+    [
+      657,
+      401,
+      0,
+      406,
+      0,
+      "IMAGE"
+    ],
+    [
+      658,
+      392,
+      0,
+      407,
+      0,
+      "IMAGE"
+    ],
+    [
+      659,
+      401,
+      0,
+      407,
+      1,
+      "IMAGE"
+    ],
+    [
+      660,
+      406,
+      0,
+      407,
+      2,
+      "MASK"
+    ],
+    [
+      661,
+      407,
+      0,
+      408,
+      0,
+      "IMAGE"
+    ],
+    [
+      662,
+      417,
+      0,
+      408,
+      1,
+      "VHS_AUDIO"
+    ],
+    [
+      663,
+      416,
+      0,
+      408,
+      3,
+      "FLOAT"
+    ],
+    [
+      664,
+      407,
+      0,
+      409,
+      0,
+      "IMAGE"
+    ],
+    [
+      665,
+      409,
+      0,
+      410,
+      0,
+      "MASK"
+    ],
+    [
+      666,
+      410,
+      0,
+      411,
+      0,
+      "IMAGE"
+    ],
+    [
+      667,
+      411,
+      0,
+      412,
+      0,
+      "IMAGE"
+    ],
+    [
+      668,
+      412,
+      0,
+      413,
+      0,
+      "IMAGE"
+    ],
+    [
+      669,
+      417,
+      0,
+      413,
+      1,
+      "VHS_AUDIO"
+    ],
+    [
+      670,
+      416,
+      0,
+      413,
+      3,
+      "FLOAT"
+    ],
+    [
+      671,
+      385,
+      0,
+      418,
+      0,
+      "IMAGE"
+    ],
+    [
+      672,
+      101,
+      0,
+      418,
+      3,
+      "FLOAT"
+    ]
+  ],
+  "groups": [
+    {
+      "title": " :::音频设定:::",
+      "bounding": [
+        -1240,
+        700,
+        700,
+        1850
+      ],
+      "color": "#444",
+      "font_size": 108,
+      "locked": false
+    },
+    {
+      "title": " :::Voronoi / 沃罗诺伊图 生成:::",
+      "bounding": [
+        -500,
+        700,
+        2200,
+        1830
+      ],
+      "color": "#444",
+      "font_size": 108,
+      "locked": false
+    },
+    {
+      "title": " :::遮罩生成 - For Higher VRAM:::",
+      "bounding": [
+        1780,
+        700,
+        4640,
+        1680
+      ],
+      "color": "#444",
+      "font_size": 108,
+      "locked": false
+    },
+    {
+      "title": " ### Step1 Mask Generation 节奏遮罩生成 ### Fantasy AI Studio 拓展开发   WeChat: AlanHuang67 备注加入FAI社群",
+      "bounding": [
+        -1240,
+        510,
+        5710,
+        150
+      ],
+      "color": "#ff1486",
+      "font_size": 108,
+      "locked": true
+    },
+    {
+      "title": " :::遮罩生成 - For Lower VRAM:::",
+      "bounding": [
+        1780,
+        2420,
+        4680,
+        1260
+      ],
+      "color": "#444",
+      "font_size": 108,
+      "locked": false
+    }
+  ],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 0.14641000000000168,
+      "offset": {
+        "0": 3346.87051740681,
+        "1": 1864.7078252645833
+      }
+    }
+  },
+  "version": 0.4
+}
