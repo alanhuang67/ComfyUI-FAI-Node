@@ -26,6 +26,7 @@ I added 17 formulas for different transitions and turned them into a drop-down m
 
   
 Credit to https://github.com/get-salt-AI/SaltAI_AudioViz and https://discord.com/channels/1076117621407223829/1248723355914473525
+
 (Please let me know if there is anyone I didn't give the credit~)
 
 ## INSTALLATION
