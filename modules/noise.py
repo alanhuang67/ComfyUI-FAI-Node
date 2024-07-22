@@ -44,16 +44,16 @@ class VoronoiNoise(nn.Module):
             grid_x, grid_y = torch.meshgrid(x_coords, y_coords, indexing='xy')
             grid = torch.stack([grid_x, grid_y], dim=-1).float()
 
-            if self.distance_metric == 'euclidean (圆形)':
+            if self.distance_metric == 'euclidean':
                 distances = torch.sqrt(((grid.unsqueeze(2) - points) ** 2).sum(dim=-1))
-            elif self.distance_metric == 'manhattan (矩形)':
+            elif self.distance_metric == 'manhattan':
                 distances = torch.abs(grid.unsqueeze(2) - points).sum(dim=-1)
-            elif self.distance_metric == 'chebyshev (菱形)':
+            elif self.distance_metric == 'chebyshev':
                 distances = torch.abs(grid.unsqueeze(2) - points).max(dim=-1).values
-            elif self.distance_metric == 'minkowski (圆方形)':
+            elif self.distance_metric == 'minkowski':
                 p = 3
                 distances = (torch.abs(grid.unsqueeze(2) - points) ** p).sum(dim=-1) ** (1/p)
-            elif self.distance_metric == 'elliptical (椭圆形)':
+            elif self.distance_metric == 'elliptical':
                 # 确定长轴和短轴
                 if self.width > self.height:
                     a = self.width / self.height
@@ -68,7 +68,7 @@ class VoronoiNoise(nn.Module):
                 b *= scale_factor_b
                 distances = torch.sqrt(((grid.unsqueeze(2) - points) ** 2 / torch.tensor([a, b], device=self.device)).sum(dim=-1))
 
-            elif self.distance_metric == 'kaleidoscope_star (万花筒_旋转星)':
+            elif self.distance_metric == 'kaleidoscope_star':
                 def kaleidoscope_star_shape(theta):
                     return torch.abs(torch.sin(8 * theta))  # 调整8以生成不同数量的星点
                 
@@ -77,7 +77,7 @@ class VoronoiNoise(nn.Module):
                 star_radius = kaleidoscope_star_shape(theta)
                 distances = torch.abs(radius - star_radius * radius / star_radius.max())
                 distances = 1 - distances / distances.max()  # Adjust contrast
-            elif self.distance_metric == 'kaleidoscope_wave (万花筒_波浪)':
+            elif self.distance_metric == 'kaleidoscope_wave':
                 def kaleidoscope_wave_shape(theta):
                     return 1 + 0.3 * torch.sin(4 * theta + radius / 10)  # 结合角度和半径生成波浪
                 
@@ -86,12 +86,12 @@ class VoronoiNoise(nn.Module):
                 wave_radius = kaleidoscope_wave_shape(theta)
                 distances = torch.abs(radius - wave_radius * radius / wave_radius.max())
                 distances = 1 - distances / distances.max()  # Adjust contrast
-            elif self.distance_metric == 'kaleidoscope_radiation_α (万花筒_放射线_α)':
+            elif self.distance_metric == 'kaleidoscope_radiation_α':
                 theta = torch.atan2(grid[..., 1].unsqueeze(2) - points[..., 1], grid[..., 0].unsqueeze(2) - points[..., 0])
                 radius = torch.sqrt((grid[..., 0].unsqueeze(2) - points[..., 0])**2 + (grid[..., 1].unsqueeze(2) - points[..., 1])**2)
                 distances = torch.abs(torch.sin(6 * theta) * radius)
                 distances = 1 - distances / distances.max()  # 调整对比度
-            elif self.distance_metric == 'kaleidoscope_radiation_β (万花筒_放射线_β)':
+            elif self.distance_metric == 'kaleidoscope_radiation_β':
                 def kaleidoscope_2_shape(theta):
                     return 1 + 0.5 * torch.sin(5 * theta)
                 theta = torch.atan2(grid[..., 1].unsqueeze(2) - points[..., 1], grid[..., 0].unsqueeze(2) - points[..., 0])
@@ -99,7 +99,7 @@ class VoronoiNoise(nn.Module):
                 kaleidoscope_2_radius = kaleidoscope_2_shape(theta)
                 distances = torch.abs(radius - kaleidoscope_2_radius * radius / kaleidoscope_2_radius.max())
                 distances = 1 - distances / distances.max()  # Adjust contrast
-            elif self.distance_metric == 'kaleidoscope_radiation_γ (万花筒_放射线_γ)':
+            elif self.distance_metric == 'kaleidoscope_radiation_γ':
                 def kaleidoscope_diamond_shape(theta):
                     # 使用菱形对称结构生成形状
                     return torch.abs(torch.sin(4 * theta))  # 调整4以生成不同数量的菱角
