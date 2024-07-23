@@ -9,6 +9,6 @@ Repository = "https://github.com/alanhuang67/ComfyUI-FAI-Node"
 #  Used by Comfy Registry https://comfyregistry.org
 
 [tool.comfy]
-PublisherId = ""
+PublisherId = "fai"
 DisplayName = "ComfyUI-FAI-Node"
 Icon = ""
