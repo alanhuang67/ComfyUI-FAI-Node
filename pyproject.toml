@@ -1,0 +1,14 @@
+[project]
+name = "comfyui-fai-node"
+description = "Various custom nodes for ComfyUI"
+version = "1.0.0"
+license = {file = "LICENSE"}
+
+[project.urls]
+Repository = "https://github.com/alanhuang67/ComfyUI-FAI-Node"
+#  Used by Comfy Registry https://comfyregistry.org
+
+[tool.comfy]
+PublisherId = ""
+DisplayName = "ComfyUI-FAI-Node"
+Icon = ""
