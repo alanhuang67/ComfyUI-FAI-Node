@@ -48,7 +48,7 @@ class FAI_Voronoi_Generator:
     RETURN_NAMES = ("images", "batch_size")
 
     FUNCTION = "generate"
-    CATEGORY = "⚛️FAI_Node⚛️/Voronoi Generator"
+    CATEGORY = "⚛️FAI_Node⚛️"
     
     def generate(self, batch_size, width, height, distance_metric="euclidean (圆形)", x_schedule=[0], y_schedule=[0], scale_schedule=[1.0], detail_schedule=[100], randomness_schedule=[1], seed_schedule=[0], device="cuda"):
         voronoi = VoronoiNoise(width=width, height=height, scale=scale_schedule, detail=detail_schedule, seed=seed_schedule, 
@@ -99,7 +99,7 @@ class FAIScaleScheduler:
     RETURN_NAMES = ("schedule_list", )
 
     FUNCTION = "generate_schedule"
-    CATEGORY = "⚛️FAI_Node⚛️/Voronoi Generator"
+    CATEGORY = "⚛️FAI_Node⚛️"
 
     def generate_schedule(self, formula, easing_mode, end_frame=0, ndigits=2, a=1.0, b=1.0):
         selected_formula = self.formulas[formula]
@@ -119,5 +119,3 @@ NODE_DISPLAY_NAME_MAPPINGS = {
     "FAI_Voronoi_Generator": "⚛️FAI_Voronoi_Generator⚛️",
     "FAIScaleScheduler": "⚛️FAI Scale Scheduler⚛️"
 }
-  #FUNCTION = "generate_schedule"
-  #CATEGORY = "⚛️FAI_Node⚛️/Voronoi Generator"
