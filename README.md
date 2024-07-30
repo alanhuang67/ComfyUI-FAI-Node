@@ -55,8 +55,10 @@ Credit to https://github.com/get-salt-AI/SaltAI_AudioViz and https://discord.com
 
 ## INSTALLATION
 
-Git Clone this repo into custom_nodes folder.
+Search FAI-Node through ComfyUI Manager (Recommend)
 
+or 
+Git Clone this repo into custom_nodes folder.
 Install dependencies: pip install -r requirements.txt (you don't need this if you already install SaltAI_AudioViz node.)
 
 
