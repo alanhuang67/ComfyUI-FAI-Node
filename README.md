@@ -5,6 +5,11 @@ ComfyUI custom node development beginner, focusing on video generation tools. Ai
 ComfyUI的自定义节点开发新手，主要开发方向是视频生成辅助工具。通过这些节点，希望简化和优化视频生成的流程，让更多人能够轻松地创建高质量的视频内容。
 
 
+## FAI Dynamic Mask
+![image](https://github.com/alanhuang67/ComfyUI-FAI-Node/blob/main/assets/Node_Dynamic_Mask.png).
+Easy Mask Generation node
+
+
 ## FAI_Voronoi_Generator
 ![image](https://github.com/alanhuang67/ComfyUI-FAI-Node/blob/main/assets/Node.png?raw=true)
 
